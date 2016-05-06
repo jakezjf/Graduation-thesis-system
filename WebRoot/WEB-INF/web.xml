@@ -82,6 +82,12 @@
 		<filter-name>TeacherSessionFilter</filter-name>
 		<url-pattern>/teacherMark/*</url-pattern>
 	</filter-mapping>
+	<filter-mapping>
+		<filter-name>TeacherSessionFilter</filter-name>
+		<url-pattern>/groComment/*</url-pattern>
+	</filter-mapping>
+	
+	
 	<!-- 控制器开始  admin -->
 	<filter-mapping>
 		<filter-name>FrontSessionFilter</filter-name>

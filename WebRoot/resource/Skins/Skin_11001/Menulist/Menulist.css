@@ -1,0 +1,15 @@
+@charset "utf-8";
+/* CSS Document */
+.menulist div{overflow:hidden;}
+.menulist div span{
+font-family:"微软雅黑","Microsoft Yahei","宋体";
+display:block; height:33px; line-height:33px; background:url(icon_expanded.gif) no-repeat; color:#fff; font-size:12px; text-indent:34px; cursor:pointer;}
+.menulist div.collapsed{height:32px;}
+.menulist div.collapsed span{background:url(icon_collapsed.gif);}
+.menulist div a{
+	font-family:"微软雅黑","Microsoft Yahei","宋体";
+	display:block; height:27px; line-height:27px; background:url(icon_arrowlink.gif) no-repeat 34px center; overflow:hidden; text-decoration:none; color:#fff; text-indent:46px;}
+.menulist div a.current{background:url(icon_arrowlink.gif) #0a49a6 no-repeat 34px center;}
+.menulist div a:hover{padding-right:10px; background:url(icon_arrowlink.gif) #0a499e no-repeat 34px center; color:#fff;}
+/* end menulist */
+/*-- end --*/

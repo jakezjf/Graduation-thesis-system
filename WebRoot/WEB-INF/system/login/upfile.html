@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MyHtml.html</title>
+
+<meta name="keywords" content="keyword1,keyword2,keyword3">
+<meta name="description" content="this is my page">
+<meta name="content-type" content="text/html; charset=UTF-8">
+<link href="${base}/resource/hsr/acedown/assets/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/font-awesome.min.css" />
+<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace.min.css" />
+<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace-rtl.min.css" />
+<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace-skins.min.css" />
+<script src="${base}/resource/hsr/assets/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="${base!}/resource/js/ajaxfileupload.js"></script>
+ <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+</head>
+
+<body style='width:99%;'>
+	 <label style="margin-left:115px;" class="control-label col-md-2">图片</label>
+         				<div class="col-md-4">
+              <div  data-provides="fileupload">
+                <div style="width: 200px; height: 150px;">
+                  <img class="fileupload-new img-thumbnail" id="imgPrivew"style="width: 200px; height: 150px;" src="${base!}/resource/hsr/acedown/assets/images/gallery/image-1.jpg">
+                </div>
+              	</br>
+                <div>
+                <input type="hidden" id="fpic" name="imageDefault" value="">
+                <input type="hidden" id="fvpic" name="fvpic" value="">
+                <input id="uploadFile" name="uploadFile" type="file"  value="选择照片"/> 
+                <input name="" type="button" value="上传" onclick="uploadImg();" />
+                <input type="button" style="margin-left:60px;"value="删除照片" onclick="delImg();"/>
+                </br>
+                </br>
+                </div>
+              </div>
+            </div>
+            <script type="text/javascript">
+      					           		function add() {
+      					                	var form=document.getElementById("addProduct");
+ 		                     		 		form.submit();
+      					                }
+           					           	function uploadImg(){
+	           					             $.ajaxFileUpload({
+	           					                 url: '${base!}/common/uploadImg.do',
+	           					                 secureuri: false,
+	           					                 fileElementId: 'uploadFile',
+	           					                 dataType: 'json',
+	           					                 contentType:'text/json',
+	           					                 success: function(data,status){
+	           					                 	alert("上传完成");
+	           					                  	var imgsrc=data.serverpath;
+	           					                  	$("#fpic").val(imgsrc);
+	           					                 	$("#imgPrivew").attr("src",imgsrc);
+	           					                 },
+	           					                 error: function (data, status, e)
+	           					                 {
+	           					                     alert(e);
+	           					                  alert("上传失败");
+	           					                 }
+	           					             });
+	           					         }
+           					           	 function delImg(){
+           					           	if(confirm("确定删除图片？")){
+           					           			$("#fpic").val("");
+           					           			$("#imgPrivew").attr("src","");
+           					           			alert("图片已删除！");
+	           					           	}
+	           					           		
+	           					         }
+     </script>
+            
+</body>
+</html>

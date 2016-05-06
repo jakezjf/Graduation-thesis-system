@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>face.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<style media="print" type="text/css">
+.noprint{display:none;}
+.main_cont{ height:978px;width:initial;padding:0;}
+</style>
+  </head>
+  <body>
+  <input onclick="javascript:window.print()"  type="button" value="打印" class="noprint"/>
+  <#if students??>
+  <#list students as students>
+  <DIV style="HEIGHT: 490px">
+<TABLE width="100%">
+<TBODY>
+<TR>
+<TD style="WIDTH: 150px">年级：</TD>
+<TD>${year-4!}</TD></TR>
+<TR>
+<TD colSpan=2>
+<HR>
+</TD></TR>
+<TR>
+<TD>学院：</TD>
+<TD>信息科学与技术学院</TD></TR>
+<TR>
+<TD colSpan=2>
+<HR>
+</TD></TR>
+<TR>
+<TD>专业：</TD>
+<TD>网络工程</TD></TR>
+<TR>
+<TD colSpan=2>
+<HR>
+</TD></TR>
+<TR>
+<TD>学号：</TD>
+<TD>${students.stuId!}</TD></TR>
+<TR>
+<TD colSpan=2>
+<HR>
+</TD></TR>
+<TR>
+<TD>学生姓名：</TD>
+<TD>${students.stuName!}</TD></TR>
+<TR>
+<TD colSpan=2>
+<HR>
+</TD></TR>
+<TR>
+<TD>毕业论文题目：</TD>
+<TD>${students.speechTitle!}</TD></TR>
+<TR>
+<TD colSpan=2>
+<HR>
+</TD></TR>
+<TR>
+<TD>指导教师：</TD>
+<TD>${students.teaName!}</TD></TR>
+<TR>
+<TD colSpan=2>
+<HR>
+</TD></TR>
+<TR>
+<TD>装订日期：</TD>
+<TD>${year!}年${month!}月${day!}日</TD></TR>
+<TR>
+<TD colSpan=2>
+<HR>
+</TD></TR>
+<TR>
+<TD>备注栏：</TD>
+<TD></TD></TR>
+<TR>
+<TD colSpan=2>
+<HR>
+</TD></TR></TBODY></TABLE></DIV>
+</#list>
+</#if>
+  </body>
+</html>

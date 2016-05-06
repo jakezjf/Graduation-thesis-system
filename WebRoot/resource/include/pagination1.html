@@ -1,0 +1,27 @@
+<#if pagination?exists>
+<#assign p=pagination >
+<script type="text/javascript">
+function jump(){
+var pagenum = document.getElementById("atpage").value;
+try{
+	var totalPage = ${p.totalPage} ;
+	if(pagenum <=0 || pagenum > totalPage){
+		alert("输入页码有误，请重新输入！\r\n注：页码大于0并且小于总页码！");
+		return false;
+	}
+	location.href="v_list.do?pageNo="+pagenum+"&${params!}" ;
+}catch(e){}
+return false;
+}
+</script>
+<div align="right" style="margin-right: 20px;">
+共${p.totalCount}条记录 ${p.pageNo}/${p.totalPage}页
+<#if p.firstPage>&nbsp;<a disabled="disabled">首页</a> <a disabled="disabled">上一页</a>
+<#else>&nbsp;<a href="v_list.do?pageNo=1&${params!""}" method="get">首页</a> <a href="v_list.do?pageNo=<#if p.prePage gte 1>${p.prePage}&${params!""}</#if>" method="get">上一页</a>
+</#if>
+<#if p.lastPage>&nbsp;<a disabled="disabled">下一页</a> <a disabled="disabled">尾页</a>
+<#else>&nbsp;<a href="v_list.do?voteType=${voteType!}&&pageNo=${p.nextPage}&${params!""}" method="get">下一页</a> <a href="v_list.do?pageNo=${p.totalPage}&${params!""}" method="get">尾页</a>
+</#if>
+<input type="text" style="width:30px;" value="" name="atpage" id="atpage"><input type="submit" value="跳转" onclick="jump();">
+</div>
+</#if>

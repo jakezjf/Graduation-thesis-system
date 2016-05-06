@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:javaee="http://java.sun.com/xml/ns/javaee"
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	id="WebApp_ID" version="2.4">
+	<icon>
+		<small-icon></small-icon>
+		<large-icon></large-icon>
+	</icon>
+	<display-name>jianfeng</display-name>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			/WEB-INF/config/jcaptcha-context.xml
+			/WEB-INF/config/application-context.xml
+			/WEB-INF/config/database-context.xml
+			/WEB-INF/config/jf-admin-service.xml
+			/WEB-INF/config/jf-student-service.xml
+		</param-value>
+	</context-param>
+	<filter>
+		<filter-name>encoding</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>*.html</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>encoding</filter-name>
+		<url-pattern>*.js</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>FrontSessionFilter</filter-name>
+		<filter-class>com.jf.common.session.FrontSessionFilter</filter-class>
+	</filter>
+	
+	<filter>
+		<filter-name>StudentSessionFilter</filter-name>
+		<filter-class>com.jf.common.session.StudentSessionFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>TeacherSessionFilter</filter-name>
+		<filter-class>com.jf.common.session.TeacherSessionFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>StudentSessionFilter</filter-name>
+		<url-pattern>/studentlogin/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>TeacherSessionFilter</filter-name>
+		<url-pattern>/teacherlogin/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>TeacherSessionFilter</filter-name>
+		<url-pattern>/teacherlnfo/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>TeacherSessionFilter</filter-name>
+		<url-pattern>/teacherPrinter/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>TeacherSessionFilter</filter-name>
+		<url-pattern>/teacherMark/*</url-pattern>
+	</filter-mapping>
+	<!-- 控制器开始  admin -->
+	<filter-mapping>
+		<filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/login/toregister.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/login/register.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		 <filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/login/pagelist.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		 <filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/login/toupdate.do</url-pattern>
+	</filter-mapping>
+		<filter-mapping>
+		 <filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/login/toadd.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		 <filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/login/add.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		 <filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/login/update.do</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		 <filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/percent/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/student/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/teacher/*</url-pattern>
+	</filter-mapping>
+		
+		<!-- 控制器开始  student -->
+		
+	<!--	
+		<filter-mapping>
+		<filter-name>StudentSessionFilter</filter-name>
+		<url-pattern>/studentlogin/*</url-pattern>
+	</filter-mapping>-->
+		<!-- 控制器开始  student -->
+		
+		
+		
+	<!--	 控制器结束 -->
+		<servlet>
+		<servlet-name>DzzqCmsAdmin</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/config/jf-admin-servlet.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/config/jf-student-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DzzqCmsAdmin</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>DZZQcaptcha</servlet-name>
+		<servlet-class>com.jf.common.jcaptcha.JcaptchaServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DZZQcaptcha</servlet-name>
+		<url-pattern>/jcaptcha.jct</url-pattern>
+	</servlet-mapping>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	<session-config>
+		<session-timeout>20</session-timeout>
+	</session-config>
+	<servlet-mapping>
+		<servlet-name>DzzqCmsAdmin</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	<error-page>
+		<error-code>403</error-code>
+		<location>/WEB-INF/error/403.html</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/error/404.html</location>
+	</error-page>
+	<error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/error/500.html</location>
+    </error-page> 
+</web-app>

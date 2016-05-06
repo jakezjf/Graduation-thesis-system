@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyHtml.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  		<link href="${base}/resource/hsr/acedown/assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace-skins.min.css" />
+		
+		<!--  jquery -->
+		<link rel="stylesheet" href="${base}/resource/css/reset1.css" />
+<link rel="stylesheet" href="${base}/resource/css/pagination.css" />
+
+
+<script type="text/javascript" src="${base}/resource/js/lib/jquery.min.js"></script>
+<script type="text/javascript" src="${base}/resource/js/jquery.pagination.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#Pagination").pagination("15");
+});
+</script>
+
+  </head>
+  
+  <body style='width:99%;'>
+		<div class="page-content">
+		<div class="page-header">
+				<h1>
+					<i class="icon-search"></i>用户管理-用户信息	 &nbsp; 			
+				</h1>
+		</div>
+		<span class="action-span" style="float:right;">
+            <a href="${base}/login/toadd.do">添加新用户</a>
+              </span>
+		<div class="row">
+			<div class="row">
+			<div style="margin-left: 10px;">
+			<form action="${base}/login/pagelist.do?pageNo=1" id="queryFood"  method="post" >
+		        	  <select name="type" >
+			           <option value="">全部</option>
+				      	<option value="1" <#if type ?? && type==1>selected="selected"</#if>>学生</option>
+				      	<option value="2" <#if type ?? && type==2>selected="selected"</#if>>教师</option>
+				      	<option value="3" <#if type ?? && type==3>selected="selected"</#if>>管理员</option>
+			 </select>
+		        	 &nbsp;&nbsp;关键字：  用户名<input type="text"  size="16" name="id"  value="${idd!}">       
+		        	 &nbsp;&nbsp;姓名<input type="text"  size="16" name="name"  value="${name!}">   
+			         <input type="button"  value="搜索" size="6" name="formid"  style="cursor:pointer" onclick ="addApply()">
+       		 </form>
+       		 </div>
+       		  <script type="text/javascript">
+       		  
+       		function addApply(){
+       			var form = document.getElementById("queryFood");
+       				form.submit();
+       		}
+              </script>
+				<div class="col-xs-12">
+						<div class="table-responsive">
+							<table id="sample-table-2" class="table table-striped table-bordered table-hover">
+								<thead>
+									<tr>
+										<th class="center">用户名</th>
+										<th class="center">姓名</th>
+										<th class="center">类型</th>
+										<th  class="center">修改信息</th>
+										<th  class="center">删除信息</th>
+									</tr>
+								</thead>
+								<tbody>
+                    <#if users ??>
+                    <#list users as users>
+                    <tr>
+                        <td>${users.id}</td>
+                        <td>${users.name}</td>
+                        <#if users.type=1>
+                        <td> 学生 </td>
+                        <#elseif users.type=2>
+                         <td>教师</td>
+                        <#else>
+                         <td> 管理员</td>
+                        </#if>
+                        <td >
+                        <a href="${base}/login/toupdate.do?id=${users.id}" >修改</a>
+                        </td>
+                        <td >
+                        <#if users.type!=3>
+                        <a href="${base}/login/del.do?id=${users.id!}&&type={type!}" >删除</a>
+                        </#if>
+                        </td>
+                    </tr>
+                    </#list>
+                    </#if>
+                    </tbody>
+                    </table>
+		          </div>
+		   </div>
+		    <div  style="margin-bottom: auto">
+       		 	<#include "../include/pagination1.html" />  
+     			 </div>
+		   </div>
+       </div>
+  </div>
+  </body>
+</html>

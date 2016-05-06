@@ -1,0 +1,54 @@
+@charset "utf-8";
+/* CSS Document */
+ul.tab_Tit .tab_Titspan{display:block; height:41px;}
+ul.tab_Tit li{float:right; height:41px; line-height:41px; text-align:center; font-size:12px; font-weight:bold;}
+
+.myTabCon1,
+.myTabCon2,
+.myTabCon3,
+.myTabCon4,
+.myTabCon5{height:39px;}
+.off{display:none;}
+/* link */
+ul.tab_Tit li a{text-decoration:none; display:block; height:41px; padding-left:15px; background:url(Nav.gif) no-repeat left top; color:#fff;}
+ul.tab_Tit li a span{display:block; height:41px; padding-right:15px; background:url(Nav.gif) no-repeat right top;}
+ul.tab_Tit li a:hover{background:url(Nav.gif) no-repeat left -41px;}
+ul.tab_Tit li a:hover span{background:url(Nav.gif) no-repeat right -41px;}
+
+/*ul.tab_Tit #myTabTit1 a{background-position:left 0;}
+ul.tab_Tit #myTabTit1 a span{background-position:right 0;}
+ul.tab_Tit #myTabTit2 a{background-position:left -35px;}
+ul.tab_Tit #myTabTit2 a span{background-position:right -35px;}
+ul.tab_Tit #myTabTit3 a{background-position:left -70px;}
+ul.tab_Tit #myTabTit3 a span{background-position:right -70px;}
+ul.tab_Tit #myTabTit4 a{background-position:left -105px;}
+ul.tab_Tit #myTabTit4 a span{background-position:right -105px;}
+ul.tab_Tit #myTabTit5 a{background-position:left -140px;}
+ul.tab_Tit #myTabTit5 a span{background-position:right -140px;}
+
+ul.tab_Tit #myTabTit1 a:hover{background-position:left -175px;}
+ul.tab_Tit #myTabTit1 a:hover span{background-position:right -175px;}
+ul.tab_Tit #myTabTit2 a:hover{background-position:left -210px;}
+ul.tab_Tit #myTabTit2 a:hover span{background-position:right -210px;}
+ul.tab_Tit #myTabTit3 a:hover{background-position:left -245px;}
+ul.tab_Tit #myTabTit3 a:hover span{background-position:right -245px;}
+ul.tab_Tit #myTabTit4 a:hover{background-position:left -280px;}
+ul.tab_Tit #myTabTit4 a:hover span{background-position:right -280px;}
+ul.tab_Tit #myTabTit5 a:hover{background-position:left -315px;}
+ul.tab_Tit #myTabTit5 a:hover span{background-position:right -315px;}*/
+
+.tab_Tit li#myTabTit1 a.select1{background:url(Nav.gif) no-repeat left -41px;}
+.tab_Tit li#myTabTit1 a span.selectspan1{background:url(Nav.gif) no-repeat right -41px;}
+.tab_Tit li#myTabTit2 a.select2{background:url(Nav.gif) no-repeat left -41px;}
+.tab_Tit li#myTabTit2 a span.selectspan2{background:url(Nav.gif) no-repeat right -41px;}
+.tab_Tit li#myTabTit3 a.select3{background:url(Nav.gif) no-repeat left -41px;}
+.tab_Tit li#myTabTit3 a span.selectspan3{background:url(Nav.gif) no-repeat right -41px;}
+.tab_Tit li#myTabTit4 a.select4{background:url(Nav.gif) no-repeat left -41px;}
+.tab_Tit li#myTabTit4 a span.selectspan4{background:url(Nav.gif) no-repeat right -41px;}
+.tab_Tit li#myTabTit5 a.select5{background:url(Nav.gif) no-repeat left -41px;}
+.tab_Tit li#myTabTit5 a span.selectspan5{background:url(Nav.gif) no-repeat right -41px;}
+
+#subNav{height:39px; overflow:hidden;}
+#subNav ul li{float:right;}
+#subNav ul li a{text-decoration:none; display:block; height:39px; font-size: 13px;line-height:39px; margin-left:20px; color:#fff; text-align:center;}
+/*-- end --*/

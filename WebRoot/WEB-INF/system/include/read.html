@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>附件阅读</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="${base}/resource/flexpaper/script/jquery.js"></script>
+<script type="text/javascript" src="${base}/resource/flexpaper/script/flexpaper_flash.js"></script>
+<script type="text/javascript" src="${base}/resource/flexpaper/script/flexpaper_flash_debug.js"></script>
+<!-- <script type="text/javascript" src="${base}/csshead/pdf/checkAdobeReader.js"></script> -->
+<!-- <script type="text/javascript" src="${base}/csshead/pdf/check.js"></script> -->
+<script type="text/javascript">
+	var winWidth = 0;
+	var winHeight = 0;
+	$(function() {
+		//获取窗口宽度
+		if (window.innerWidth) {
+			winWidth = window.innerWidth;
+		} else if ((document.body) && (document.body.clientWidth)) {
+			winWidth = document.body.clientWidth;
+		}
+		//获取窗口高度
+		if (window.innerHeight) {
+			winHeight = window.innerHeight;
+		} else if ((document.body) && (document.body.clientHeight)) {
+			winHeight = document.body.clientHeight;
+		}
+		//通过深入Document内部对body进行检测，获取窗口大小
+		if (document.documentElement && document.documentElement.clientHeight
+				&& document.documentElement.clientWidth) {
+			winHeight = document.documentElement.clientHeight;
+			winWidth = document.documentElement.clientWidth;
+		}
+		//结果输出至两个文本框
+		// $("input[name='availHeight']").val(winHeight);
+		// $("input[name='availWidth']").val(winWidth);
+		//document.form1.availWidth.value= winWidth;
+		$("#viewerPlaceHolder").css("width", winWidth + "px");
+		$("#viewerPlaceHolder").css("height", winHeight + "px");
+		$("#viewerPlaceHolder").css("display", "block");
+	});
+</script>
+</head>
+<body>
+	<div style="">
+		<a id="viewerPlaceHolder"></a>
+		<script type="text/javascript">
+			var fp = new FlexPaperViewer(
+					'${base}/resource/flexpaper/FlexPaperViewer', /* 对应FlexPaperViewer.swf文件*/
+					'viewerPlaceHolder', {
+						config : {
+							SwfFile : "{${base}${filePath!}[*,0].swf,${pageSize!}}",
+							Scale : 1,
+							ZoomTransition : 'easeOut',
+							ZoomTime : 0.5,
+							ZoomInterval : 0.2,
+							FitPageOnLoad : false,
+							FitWidthOnLoad : false,
+							FullScreenAsMaxWindow : false,
+							ProgressiveLoading : false,
+							MinZoomSize : 0.2,
+							MaxZoomSize : 5,
+							SearchMatchAll : false,
+							InitViewMode : 'Portrait',
+							ViewModeToolsVisible : true,
+							ZoomToolsVisible : true,
+							NavToolsVisible : true,
+							CursorToolsVisible : true,
+							SearchToolsVisible : true,
+							localeChain : 'zh_CN'
+						}
+					});
+		</script>
+	</div>
+</body>
+</html>

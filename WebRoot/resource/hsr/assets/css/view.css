@@ -1,0 +1,348 @@
+input, select, textarea {
+    margin: 0;
+    padding: 0;
+    border: 1px solid #bbb;
+}
+input {
+    padding: 3px;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+table {
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+td, th {
+    border: 0;
+}
+/*main title con page*/
+.core_main {
+    margin-top: 5px;
+    float: left;
+    width: 100%;
+}
+.core_title {
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background: url(../images/contop_bg.jpg);
+}
+.core_con {
+}
+.core_page {
+    padding: 0 12px 15px;
+    text-align: center;
+    font-size: 12px;
+    border-top: 0;
+    background: #fff;
+    width: auto;
+}
+.core_title_con {
+    display: inline-block;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
+.core_title_edit a {
+}
+.core_page a {
+    color: #006dcc;
+}
+
+/* tablebg #table1 #table2 #table3 #table4*/
+.tablebg {
+    margin-top: 17px;
+    width: 100%;
+    line-height: 24px;
+}
+.tablebg a {
+    color: #006dcc;
+}
+.tablebg td, .tablebg th {
+    border: 1px solid #bbb;
+    font-size: 12px;
+    text-align: center;
+}
+.tablebg th {
+    font-weight: bold;
+}
+.tablebg .tbkey {
+    width: 50%;
+    height: 36px;
+    text-align: right;
+}
+.tablebg .tbval {
+    padding-left: 5px;
+    text-align: left;
+}
+.tablebg .datafield td, .tablebg .datafield th {
+    height: 36px;
+    border: 1px solid #bbb;
+    background: #ccc;
+    font-weight: bold;
+    text-align: center;
+}
+.tablebg .datalist td {
+    height: 36px;
+    border: 1px solid #bbb;
+}
+.backbtn {
+    clear: both;
+    height: 26px;
+    text-align: center;
+    margin-top: 5px;
+}
+.button_text, .button_onmouseout, .button_onmouseover, .button_onmouseup, .button_onmousedown,.button_text#but, .button_onmouseout#but {
+    margin: 20px;
+    width: auto;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    background: #ddd;
+    padding: 2px 20px;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+}
+
+.msg {
+    color: red;
+    padding-left: 3px;
+}
+#bank, #country_id, #province_id, #city_id, #county_id {
+    width: 100px;
+}
+#state_shop, #state_net_11, #state_net_4, #state_net_5, #state_net_5_Region, #state_country, #state_province, #state_city, #state_county {
+    color: red;
+}
+.address input {
+    width: 200px;
+}
+/*所有page中form#form的元素样�?*/
+form#form select, form#form input, form#form textarea {
+    border: 1px solid #bbb;
+    margin-bottom: 0;
+}
+form#form select {
+    margin-left: 0;
+}
+form#form .button_text, form#form .button_onmouseout, form#form .button_onmouseover, form#form .button_onmouseup, form#form .button_onmousedown {
+    margin: 20px;
+    padding: 2px 20px;
+    background: #ddd;
+    border: none;
+}
+/*Public/success*/
+.Public#success .core_con {
+    background: none;
+    border: 0;
+}
+/*.PrizeSplit#index*/
+.PrizeSplit#index .pageWidth {
+    background-image: none;
+    margin: 0px auto;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: auto;
+    width: 100%;
+}
+.PrizeSplit#index #box_root {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+.PrizeSplit#index .cont {
+    overflow: auto;
+}
+.PrizeSplit#index .mbx {
+    width: 100%;
+    height: 48px;
+    border-bottom: 1px solid #e6e6e6;
+}
+.PrizeSplit#index .mbx p {
+    line-height: 47px;
+    font-size: 14px;
+    text-align: center;
+    border-bottom: 1px solid #fff;
+}
+.PrizeSplit#index .mbx span {
+    color: #fff;
+    padding: 0px 6px;
+    background: #18a32a;
+    border-radius: 2px;
+    -o-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    margin: 0 10px;
+}
+.PrizeSplit#index .mbx a {
+    color: #18a32a;
+    text-decoration: underline;
+}
+.PrizeSplit#index .cont_detail {
+    width: 100%;
+    margin: 0 auto;
+}
+.PrizeSplit#index .detail_first, .detail_second {
+    width: 100%;
+    overflow: auto;
+    padding: 10px 0;
+    margin: 0 auto;
+}
+.PrizeSplit#index .detail_first ul, .detail_second ul {
+    margin: 0 auto;
+    text-align: center;
+}
+.PrizeSplit#index .detail_first ul {
+    width: 760px;
+    margin: 0 auto;
+}
+.PrizeSplit#index .detail_second ul {
+    width: 800px;
+    margin: 0 auto;
+}
+.PrizeSplit#index .detail_first ul li, .PrizeSplit#index .detail_second ul li {
+    width: 90px;
+    background: #fff;
+    float: left;
+    box-shadow: 0 0 2px #8c8c8c;
+    display: inline;
+}
+.PrizeSplit#index .detail_first ul li {
+    margin: 0 4px;
+}
+.PrizeSplit#index .detail_second ul li {
+    margin: 0 4px;
+}
+.PrizeSplit#index .detail_first ul li h4, .detail_second ul li h4 {
+    font-size: 14px;
+    color: #fff;
+    width: 88px;
+    height: 26px;
+    line-height: 28px;
+    text-align: center;
+}
+.PrizeSplit#index .detail_first ul li h4 {
+    background: #1bbb30;
+    border: 1px solid #148b24;
+}
+.PrizeSplit#index .detail_second ul li h4 {
+    background: #e0232a;
+    border: 1px solid #b41d22;
+}
+.PrizeSplit#index .detail_first ul li table, .PrizeSplit#index .detail_second ul li table {
+    width: 90px;
+    border-left: 1px solid #a8a8a8;
+    border-right: 1px solid #a8a8a8;
+    border-bottom: 1px solid #a8a8a8;
+}
+.PrizeSplit#index .detail_first ul li table td, .PrizeSplit#index .detail_second ul li table td {
+    width: 100%;
+    font-size: 12px;
+    color: #545454px;
+    text-align: center;
+    line-height: 28px;
+}
+/*Tle#prizeForm*/
+.Tle#prizeForm .core_con {
+}
+#prizeForm .tablebg .datafield .source {
+    width: 200px;
+}
+.Tle#prizeForm .tablebg .datafield .number {
+    width: 100px;
+}
+.Tle#prizeForm .tablebg .datafield .calcul {
+    width: 300px;
+}
+.Tle#prizeForm .tablebg .datafield .layers {
+    width: 80px;
+}
+.Tle#prizeForm .tablebg .datafield .tights {
+    width: 80px;
+}
+/*Fun_bank#rem*/
+.Fun_bank#rem .core_con .add {
+    padding: 10px 0;
+    text-align: left;
+    background-position: 90% 25%;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.Fun_bank#rem .core_con .add a {
+    color: #275caa;
+}
+/*Fun_bank#add_rem*/
+.Fun_bank#add_rem .core_con .tablebg .tbval #bank, .Fun_bank#add_rem .core_con .tablebg .tbval #bank_no {
+    width: 200px;
+}
+.Fun_bank#add_rem .core_con .tablebg .tbval textarea {
+    margin: 7px 0 0 0;
+    width: 320px;
+    height: 90px;
+}
+/*Mail#send*/
+.Mail#send {
+}
+.Mail#send textarea {
+    margin-top: 7px;
+}
+.Mail#send .tablebg {
+}
+.Mail#send .core_con .tablebg .tbkey {
+    width: 9%;
+}
+.Mail#send .core_con .tablebg .tbval {
+}
+.Mail#send .core_con .tablebg .tbval #title {
+    width: 250px;
+}
+.Mail#send .core_con .tablebg .tbval #content_1 {
+    width: 540px;
+}
+.Mail#send .core_con .tablebg .tbval .ke-container td {
+    border: 0;
+    padding: 0;
+}
+/*Sale/usereg*/
+.Sale#usereg #table1 {
+    width: 48%;
+    float: left;
+}
+.Sale#usereg #table2 {
+    width: 48%;
+    float: left;
+}
+.Sale#usereg .tablebg tr:first-child td,#up #register .tablebg tr:first-child td,#buy #register .tablebg tr:first-child td {
+    font-weight: bold;
+    background: #ccc;
+}
+.Sale#usereg #table3, .Sale#usereg #table3 td {
+    border: 0;
+}
+#product .tablebg {
+    margin-top: 15px;
+}
+#product .tablebg tr td {
+    height: 36px;
+}
+#product .tablebg tbody td {
+    background: #fff!important;
+}
+#salereg #table3 tbody td,#up #table3 tbody td,#buy #table3 tbody td {
+    background: #fff!important;
+}
+#up #register {
+    margin-top: 17px;
+    border-color: gray;
+    border-style: solid;
+    border-width: 25px 10px 25px 10px;
+}
+#up #register .tbkey {
+    text-align: center;
+}
+#table3, #table3 td {
+    border: none;
+}

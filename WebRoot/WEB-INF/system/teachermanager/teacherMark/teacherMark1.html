@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet"  href="${base!}/resource/teacher/hhellow.css"/>
+<link href="${base}/resource/hsr/acedown/assets/css/bootstrap.min.css" rel="stylesheet" />
+<title>老师用表</title>
+</head>
+
+<body>
+<script type="text/javascript">  
+function sum(){  
+        var teaA = document.getElementById("a");// 获得ID为aa标签的jQuery对象  
+        var teaB = document.getElementById("b");
+        var teaC = document.getElementById("c");
+        var teaD = document.getElementById("d");
+        var teaE = document.getElementById("e");
+        var teaF = document.getElementById("f");
+        var teaG = document.getElementById("g");
+        var teaH = document.getElementById("h");
+        var teasum =document.getElementById("score");
+        var sum = parseInt(teaA.value) +  parseInt(teaB.value) + parseInt(teaC.value) + parseInt(teaD.value) + parseInt(teaE.value) + parseInt(teaF.value) + parseInt(teaG.value)+ parseInt(teaH.value);
+        teasum.value=sum;  
+    }
+</script>  
+<form action="${base}/teacherMark/insert.do?<#if student ??>stuId=${student.stuId!}</#if>" method="post"  id="bankType">
+<div class="kuang1">
+	<div class="nihao">
+		<div class="kuang2">
+        		<div class="kuang2_left">
+                		<div class="title">文献调研
+                        </div>
+                        <div class="neir">能独立查阅文献和从事其他调研；
+						有阅读外文资料的能力，有收集、加工各种信息及获取新知识的能力。
+                        </div>
+                </div>
+                <div class="kuang2_right">
+                		<select class="select" id ="aa" name="aa" size="1" onChange="redirect1(this.options.selectedIndex)">
+                		<option>未打分   </option>
+  						<option> A   </option>
+						<option> B </option>
+						<option> C   </option>
+						<option> D   </option>
+						<option> E  </option>
+						</select><br>
+                       <select class="select" name="teaA" id="a" size="1" onchange="sum()">
+						<option value=""></option>
+						</select>
+							<script type="text/javascript">
+
+  
+	var groups=document.getElementById("aa").options.length
+	
+  var group=new Array(groups)
+	var group20=new Array(groups)
+	  for (i=0; i<groups; i++)
+	  group20[i]=new Array()
+	group20[0][0]=new Option("","")
+	  group20[1][0]=new Option("20","20")
+	  group20[1][1]=new Option("19","19")
+	  group20[1][2]=new Option("18","18")
+	  group20[2][0]=new Option("17","17")
+	  group20[2][1]=new Option("16","16")
+	  group20[2][2]=new Option("15","15")
+	  group20[3][0]=new Option("14","14")
+	  group20[3][1]=new Option("13","13")
+	  group20[3][2]=new Option("12","12")
+	  group20[4][0]=new Option("11","11")
+	  group20[4][1]=new Option("10","10")
+	  group20[4][3]=new Option("9","9")
+	  group20[5][0]=new Option("8","8")
+	  group20[5][1]=new Option("7","7")
+	  group20[5][2]=new Option("6","6")
+	  group20[5][3]=new Option("5","5")
+	  group20[5][4]=new Option("4","4")
+	  group20[5][5]=new Option("3","3")
+	  group20[5][6]=new Option("2","2")
+	  group20[5][7]=new Option("1","1")
+	  group20[5][8]=new Option("0","0")
+	
+	
+	for (i=0; i<groups; i++)
+  group[i]=new Array()
+  group[0][0]=new Option("","")
+  group[1][0]=new Option("10","10")
+  group[2][0]=new Option("9","9")
+  group[3][0]=new Option("8","8")
+  group[4][0]=new Option("7","7")
+  group[5][0]=new Option("6","6")
+  group[5][1]=new Option("5","5")
+  group[5][2]=new Option("4","4")
+  group[5][3]=new Option("3","3")
+  group[5][4]=new Option("2","2")
+  group[5][5]=new Option("1","1")
+  group[5][6]=new Option("0","0")
+var temp=document.getElementById("a")
+function redirect1(x){
+  for (m=temp.options.length-1;m>0;m--)
+  temp.options[m]=null
+  for (i=0;i<group[x].length;i++){
+  temp.options[i]=new Option(group[x][i].text,group[x][i].value)
+  }
+  sum();
+  temp.options[0].selected=true
+  }
+
+
+  </script>	
+				
+					
+
+
+
+                </div>
+        </div>
+        <div class="kuang2">
+        		<div class="kuang2_left">
+                		<div class="title">实验方案设计能力
+                        </div>
+                        <div class="neir">能周密、合理地设计实验方案。
+                        </div>
+                </div>
+                <div class="kuang2_right">
+                		<select class="select" id ="bb" name="bb" size="1" onChange="redirect2(this.options.selectedIndex)">
+                		<option>未打分   </option>
+  						<option>A  </option>
+						<option>B   </option>
+						<option>C  </option>
+						<option>D   </option>
+						<option>E  </option>
+						</select><br>
+                       <select class="select" name="teaB" id="b" size="1" onchange="sum()">
+						<option value=""></option>
+						</select>
+							<script type="text/javascript">
+
+  
+  
+var tempb=document.getElementById("b")
+function redirect2(x){
+  for (m=tempb.options.length-1;m>0;m--)
+  tempb.options[m]=null
+  for (i=0;i<group[x].length;i++){
+  tempb.options[i]=new Option(group[x][i].text,group[x][i].value)
+  }
+  sum();
+  tempb.options[0].selected=true
+  }
+
+
+  </script>	
+				
+					
+
+
+
+                </div>
+        </div>
+        <div class="kuang2">
+        		<div class="kuang2_left">
+                		<div class="title">分析和解决问题能力
+                        </div>
+                        <div class="neir">能运用所学知识和技能去发现与解决实际问题；
+						能对课题进行理论分析，得出有价值的结论。能正确处理实验数据。
+                        </div>
+                </div>
+                <div class="kuang2_right">
+                		<select class="select" id ="cc" name="cc" size="1" onChange="redirect3(this.options.selectedIndex)">
+                		<option>未打分   </option>
+  						<option>A  </option>
+						<option>B   </option>
+						<option>C  </option>
+						<option>D   </option>
+						<option>E  </option>
+						</select><br>
+                       <select class="select" name="teaC" id="c" size="1" onchange="sum()">
+						<option value=""></option>
+						</select>
+							<script type="text/javascript">
+
+  
+  
+var tempc=document.getElementById("c")
+function redirect3(x){
+  for (m=tempc.options.length-1;m>0;m--)
+  tempc.options[m]=null
+  for (i=0;i<group20[x].length;i++){
+  tempc.options[i]=new Option(group20[x][i].text,group20[x][i].value)
+  }
+  sum();
+  tempc.options[0].selected=true
+  }
+
+
+  </script>	
+				
+					
+
+
+
+                </div>
+        </div>
+        <div class="kuang2">
+        		<div class="kuang2_left">
+                		<div class="title">实验动手能力
+                        </div>
+                        <div class="neir">有较强的实际动手能力和计算机应用能力。
+                        </div>
+                </div>
+                <div class="kuang2_right">
+                		<select class="select" id ="dd" name="dd" size="1" onChange="redirect4(this.options.selectedIndex)">
+                		<option>未打分   </option>
+  						<option>A  </option>
+						<option>B   </option>
+						<option>C  </option>
+						<option>D   </option>
+						<option>E  </option>
+						</select><br>
+                       <select class="select" name="teaD" id="d" size="1" onchange="sum()">
+						<option value=""></option>
+						</select>
+							<script type="text/javascript">
+
+  
+ 
+var tempd=document.getElementById("d")
+function redirect4(x){
+  for (m=tempd.options.length-1;m>0;m--)
+  temd.options[m]=null
+  for (i=0;i<group[x].length;i++){
+  tempd.options[i]=new Option(group[x][i].text,group[x][i].value)
+  }
+  sum();
+  tempd.options[0].selected=true
+  }
+
+
+  </script>	
+				
+					
+
+
+
+                </div>
+        </div>
+        <div class="kuang2">
+        		<div class="kuang2_left">
+                		<div class="title">工作量、工作态度
+                        </div>
+                        <div class="neir">按期圆满完成规定的任务，工作量饱满，难度大；
+遵守纪律，未出现任何事故；工作作风严谨务实。
+                        </div>
+                </div>
+                <div class="kuang2_right">
+                		<select class="select" id ="ee" name="ee" size="1" onChange="redirect5(this.options.selectedIndex)">
+                		<option>未打分   </option>
+  						<option>A  </option>
+						<option>B   </option>
+						<option>C  </option>
+						<option>D   </option>
+						<option>E  </option>
+						</select><br>
+                       <select class="select" name="teaE" id="e" size="1" onchange="sum()">
+						<option value=""></option>
+						</select>
+							<script type="text/javascript">
+
+  
+ 
+var tempe=document.getElementById("e")
+function redirect5(x){
+  for (m=tempe.options.length-1;m>0;m--)
+  tempe.options[m]=null
+  for (i=0;i<group[x].length;i++){
+  tempe.options[i]=new Option(group[x][i].text,group[x][i].value)
+  }
+  sum();
+  tempe.options[0].selected=true
+  }
+
+
+  </script>	
+				
+					
+
+
+
+                </div>
+        </div>
+        <div class="kuang2">
+        		<div class="kuang2_left">
+                		<div class="title">论文（设计）撰写质量
+                        </div>
+                        <div class="neir">结构严谨，逻辑性强，论述层次清晰；
+文字通顺，技术用语准确；格式符合学校要求。
+                        </div>
+                </div>
+                <div class="kuang2_right">
+                		<select class="select" id ="ff" name="ff" size="1" onChange="redirect6(this.options.selectedIndex)">
+                		<option>未打分   </option>
+  						<option>A  </option>
+						<option>B   </option>
+						<option>C  </option>
+						<option>D   </option>
+						<option>E  </option>
+						</select><br>
+                       <select class="select" name="teaF" id="f" size="1" onchange="sum()">
+						<option value=""></option>
+						</select>
+							<script type="text/javascript">
+
+  
+  
+var tempf=document.getElementById("f")
+function redirect6(x){
+  for (m=tempf.options.length-1;m>0;m--)
+  tempf.options[m]=null
+  for (i=0;i<group20[x].length;i++){
+  tempf.options[i]=new Option(group20[x][i].text,group20[x][i].value)
+  }
+  sum();
+  tempf.options[0].selected=true
+  }
+
+
+  </script>	
+				
+					
+
+
+
+                </div>
+        </div>
+        <div class="kuang2">
+        		<div class="kuang2_left">
+                		<div class="title">创新
+                        </div>
+                        <div class="neir">工作中有创新意识；对前人工作有改进或突破。
+                        </div>
+                </div>
+              <div class="kuang2_right">
+                		<select class="select" id ="gg" name="gg" size="1" onChange="redirect7(this.options.selectedIndex)">
+                		<option>未打分   </option>
+  						<option>A  </option>
+						<option>B   </option>
+						<option>C  </option>
+						<option>D   </option>
+						<option>E  </option>
+						</select><br>
+                       <select class="select" name="teaG" id="g" size="1" onchange="sum()">
+						<option value=""></option>
+						</select>
+							<script type="text/javascript">
+
+  
+  
+var tempg=document.getElementById("g")
+function redirect7(x){
+  for (m=tempb.options.length-1;m>0;m--)
+  tempg.options[m]=null
+  for (i=0;i<group[x].length;i++){
+  tempg.options[i]=new Option(group[x][i].text,group[x][i].value)
+  }
+  sum();
+  tempg.options[0].selected=true
+  }
+
+
+  </script>	
+				
+					
+
+
+
+                </div>
+        </div><div class="kuang2">
+        		<div class="kuang2_left">
+                		<div class="title">论文（设计）成果
+                        </div>
+                        <div class="neir">成果突出，有一定的理论或应用价值。
+                        </div>
+                </div>
+                 <div class="kuang2_right">
+                		<select class="select" id ="hh" name="hh" size="1" onChange="redirect8(this.options.selectedIndex)">
+                		<option>未打分   </option>
+  						<option>A  </option>
+						<option>B   </option>
+						<option>C  </option>
+						<option>D   </option>
+						<option>E  </option>
+						</select><br>
+                       <select class="select" name="teaH" id="h" size="1" onchange="sum()">
+						<option value=""></option>
+						</select>
+							<script type="text/javascript">
+
+  
+ 
+var temph=document.getElementById("h")
+function redirect8(x){
+  for (m=tempb.options.length-1;m>0;m--)
+  temph.options[m]=null
+  for (i=0;i<group[x].length;i++){
+  temph.options[i]=new Option(group[x][i].text,group[x][i].value)
+  }
+  sum();
+  temph.options[0].selected=true
+  }
+
+
+  </script>	
+				
+					
+<script type="text/javascript">  
+function addApply(){  
+	    var form = document.getElementById("bankType");
+        if(form.teaA.value==""){
+        	 alert("第一项未打分");
+        	 return false;
+        }
+        if(form.teaB.value==""){
+       	 alert("第二项未打分");
+       	 return false;
+       }
+        if(form.teaC.value==""){
+       	 alert("第三项未打分");
+       	 return false;
+       }
+        if(form.teaD.value==""){
+       	 alert("第四项未打分");
+       	 return false;
+       }
+        if(form.teaE.value==""){
+       	 alert("第五项未打分");
+       	 return false;
+       }
+        if(form.teaF.value==""){
+       	 alert("第六项未打分");
+       	 return false;
+       }
+        if(form.teaG.value==""){
+          	 alert("第七项未打分");
+          	 return false;
+          }
+        if(form.teaH.value==""){
+          	 alert("第八项未打分");
+          	 return false;
+          }
+        form.submit();
+    }
+</script>  
+
+
+                </div>
+        </div>
+	
+</div>
+</div>
+   姓名:&nbsp;&nbsp;<input type="text"  readonly="readonly"  size="16" name="stuName" value="<#if student ??>${student.stuName!}</#if>" /> &nbsp;&nbsp;&nbsp;&nbsp; 总分：&nbsp;&nbsp; <input type="text"  id="score" />
+   &nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-info" id="forSubmit" type="button"  onclick="addApply()" ><!-- onclick="" -->
+								<i class="icon-ok bigger-110"></i> 提交
+							</button><br><br>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyHtml.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  		<link href="${base}/resource/hsr/acedown/assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace-skins.min.css" />
+		
+		<!--  jquery -->
+		<link rel="stylesheet" href="${base}/resource/css/reset1.css" />
+<link rel="stylesheet" href="${base}/resource/css/pagination.css" />
+
+
+<script type="text/javascript" src="${base}/resource/js/lib/jquery.min.js"></script>
+<script type="text/javascript" src="${base}/resource/js/jquery.pagination.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#Pagination").pagination("15");
+});
+</script>
+
+  </head>
+  
+  <body style='width:99%;'>
+		<div class="page-content">
+		<div class="page-header">
+				<h1>
+					<i class="icon-search"></i>用户管理-指导答辩分管理	 &nbsp; 			
+				</h1>
+		</div>
+		<div class="row">
+			<div class="row">
+			<div style="margin-left: 10px;">
+       		 </div>
+       		  <script type="text/javascript">
+       		  
+       		function addApply(){
+       			var form = document.getElementById("queryFood");
+       				form.submit();
+       		}
+              </script>
+				<div class="col-xs-12">
+						<div class="table-responsive">
+							<table id="sample-table-2" class="table table-striped table-bordered table-hover">
+								<thead>
+									<tr>
+										<th class="center">指导分所占比例</th>
+										<th class="center">答辩分所占比例</th>
+										<th class="center">修改</th>
+									</tr>
+								</thead>
+								<tbody>
+                    <tr>
+                        <td class="center">${percent1!}%</td>
+                        <td class="center">${percent2!}%</td>
+                        <td class="center">
+                        <a  href="${base}/percent/toupdate.do" >修改</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                    </table>
+		          </div>
+		   </div>
+		   </div>
+       </div>
+  </div>
+  </body>
+</html>

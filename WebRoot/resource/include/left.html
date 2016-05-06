@@ -1,0 +1,250 @@
+			<div class="sidebar" id="sidebar">
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+					</script>
+
+<!--导航开始-->					
+					<ul class="nav nav-list">
+						<li>
+							<a href="${base}/welcome/default.do" target="mainFrom">
+								<i class="icon-dashboard"></i>
+								<span class="menu-text"> 首页</span>							
+							</a>
+						</li>
+<!--控制台-->				
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-group"></i>
+								<span class="menu-text"> 资料管理 </span>
+								<b class="arrow icon-angle-down"></b>							
+							</a>
+							
+							<ul class="submenu">
+								<li>
+									<a href="${base!}/clientmanage/getList.do?clientStatus=1">
+										<i class="icon-double-angle-right"></i>
+										资料查看								
+									</a>								
+								</li>
+								<li>
+									<a href="${base!}/clientmanage/left.do?clientStatus=2">
+										<i class="icon-double-angle-right"></i>
+										资料修改								
+									</a>
+								</li>
+								<li>
+									<a href="${base!}/clientmanage/left.do?clientStatus=2">
+										<i class="icon-double-angle-right"></i>
+										密码修改								
+									</a>
+								</li>
+							</ul>
+							
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-group"></i>
+								<span class="menu-text"> 业务管理 </span>
+								<b class="arrow icon-angle-down"></b>							
+							</a>
+							
+							<ul class="submenu">
+								<li>
+									<a href="${base!}/clientmanage/getList.do?clientStatus=1">
+										<i class="icon-double-angle-right"></i>
+										电子货币购物							
+									</a>								
+								</li>
+								<li>
+									<a href="${base!}/clientmanage/left.do?clientStatus=2">
+										<i class="icon-double-angle-right"></i>
+										电子货币购物车							
+									</a>
+								</li>
+								<li>
+									<a href="${base!}/clientmanage/left.do?clientStatus=2">
+										<i class="icon-double-angle-right"></i>
+										电子币订单								
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-group"></i>
+								<span class="menu-text"> 业绩管理 </span>
+								<b class="arrow icon-angle-down"></b>							
+							</a>
+							
+							<ul class="submenu">
+								<li>
+									<a href="${base!}/clientmanage/getList.do?clientStatus=1">
+										<i class="icon-double-angle-right"></i>
+										管理市场列表							
+									</a>								
+								</li>
+								<li>
+									<a href="${base!}/clientmanage/left.do?clientStatus=2">
+										<i class="icon-double-angle-right"></i>
+										销售市场列表						
+									</a>
+								</li>
+								<li>
+									<a href="${base!}/clientmanage/left.do?clientStatus=2">
+										<i class="icon-double-angle-right"></i>
+										网体业绩分析							
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-group"></i>
+								<span class="menu-text"> 财务管理 </span>
+								<b class="arrow icon-angle-down"></b>							
+							</a>
+							
+							<ul class="submenu">
+								<li>
+									<a href="${base!}/clientmanage/getList.do?clientStatus=1">
+										<i class="icon-double-angle-right"></i>
+										货币转账							
+									</a>								
+								</li>
+								<li>
+									<a href="${base!}/clientmanage/left.do?clientStatus=2">
+										<i class="icon-double-angle-right"></i>
+										销售奖金表						
+									</a>
+								</li>
+								<li>
+									<a href="${base!}/clientmanage/left.do?clientStatus=2">
+										<i class="icon-double-angle-right"></i>
+										电子货币明细							
+									</a>
+								</li>
+								<li>
+									<a href="${base!}/clientmanage/left.do?clientStatus=2">
+										<i class="icon-double-angle-right"></i>
+										电子货币提现							
+									</a>
+								</li>
+								<li>
+									<a href="${base!}/clientmanage/left.do?clientStatus=2">
+										<i class="icon-double-angle-right"></i>
+										重销货币明细							
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-group"></i>
+								<span class="menu-text"> 信息管理 </span>
+								<b class="arrow icon-angle-down"></b>							
+							</a>
+							
+							<ul class="submenu">
+								<li>
+									<a href="${base!}/clientmanage/getList.do?clientStatus=1">
+										<i class="icon-double-angle-right"></i>
+										邮件列表							
+									</a>								
+								</li>
+								<li>
+									<a href="${base!}/clientmanage/left.do?clientStatus=2">
+										<i class="icon-double-angle-right"></i>
+										发送邮件						
+									</a>
+								</li>
+								<li>
+									<a href="${base!}/clientmanage/left.do?clientStatus=2">
+										<i class="icon-double-angle-right"></i>
+										发件箱							
+									</a>
+								</li>
+								<li>
+									<a href="${base!}/clientmanage/left.do?clientStatus=2">
+										<i class="icon-double-angle-right"></i>
+										公告管理						
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-group"></i>
+								<span class="menu-text"> 临时菜单 </span>
+								<b class="arrow icon-angle-down"></b>							
+							</a>
+							<ul class="submenu">
+								<li>
+									<a href="${base!}/bank/bankType.do" target="mainFrom">
+									<i class="icon-hdd"></i>
+									<span class="menu-text"> 银行类型</span>							
+									</a>
+								</li>
+								<li>
+									<a href="${base!}/product/productList.do" target="mainFrom">
+										<i class="icon-hdd"></i>
+										<span class="menu-text"> 商品列表 </span>
+										<b class=""></b></a>
+								</li>
+								<li>
+									<a href="${base!}/notification/salesNotification.do"  target="mainFrom">
+										<i class="icon-hdd"></i>
+										<span class="menu-text"> 销售通知</span>
+										<b class=""></b></a>
+								</li>
+								<li>
+									 <a href="${base!}/user/userList.do" target="mainFrom" >
+										<i class="icon-hdd"></i>
+										<span class="menu-text"> 用户管理</span>
+										<b class=""></b></a>
+								</li>
+								<li>
+									<a href="${base!}/userNotification/userNotificaiton.do" target="mainFrom" >
+										<i class="icon-hdd"></i>
+										<span class="menu-text"> 用户通知</span>
+										<b class=""></b></a>
+								</li>
+								<li>
+									<a href="${base!}/cart/cartList.do" target="mainFrom" >
+										<i class="icon-hdd"></i>
+										<span class="menu-text">购物车</span>
+										<b class=""></b>
+									</a>
+								</li>
+								<li>
+									<a href="${base!}/salesProduct/salesProductList.do" target="mainFrom" >
+										<i class="icon-hdd"></i>
+										<span class="menu-text">产品</span>
+										<b class=""></b></a>
+								</li>
+									<li>
+									<a href="${base!}/bounsRate/rateList.do" target="mainFrom">
+										<i class="icon-hdd"></i>
+										<span class="menu-text">奖金</span>
+										<b class=""></b></a>
+								</li>
+								<li>
+									<a href="${base!}/userCash/useCashList.do" target="mainFrom">
+										<i class="icon-hdd"></i>
+										<span class="menu-text">用户提现</span>
+										<b class=""></b></a>
+								</li>
+							</ul>
+						</li>
+					</ul><!-- /.nav-list -->
+					<div class="sidebar-collapse" id="sidebar-collapse">
+						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>					</div>
+
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+						
+						function toRole(){
+							var res = window.showModalDialog("../role/vc_list.do", window ,"dialogwidth=950px;dialogheight=650px;status=no;help=no;");
+							
+						}
+					</script>
+				</div>

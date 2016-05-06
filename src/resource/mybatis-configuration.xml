@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE configuration    
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"    
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<!-- 全局的映射器启用或禁用缓存。 -->
+		<setting name="cacheEnabled" value="true" />
+		<!-- 全局启用或禁用延迟加载 -->
+		<setting name="lazyLoadingEnabled" value="false" />
+		<!-- 允许或不允许多种结果集从一个单独的语句中返回 -->
+		<setting name="multipleResultSetsEnabled" value="true" />
+		<!-- 使用列标签代替列名 -->
+		<setting name="useColumnLabel" value="true" />
+		<!-- 允许JDBC支持生成的键 -->
+		<setting name="useGeneratedKeys" value="false" />
+		<!-- 配置默认的执行器 -->
+		<setting name="defaultExecutorType" value="SIMPLE" />
+		<!-- 设置超时时间 -->
+		<setting name="defaultStatementTimeout" value="25000" />
+	</settings>
+	<typeAliases>
+	<typeAlias alias="JFPercent" type="com.jf.model.JFPercent" />
+	<typeAlias alias="JFPercentExample" type="com.jf.model.JFPercentExample" />
+	<typeAlias alias="JFUser" type="com.jf.model.JFUser" />
+	<typeAlias alias="JFUserExample" type="com.jf.model.JFUserExample" />
+	<typeAlias alias="JFStudent" type="com.jf.model.JFStudent" />
+	<typeAlias alias="JFStudentExample" type="com.jf.model.JFStudentExample" />
+	<typeAlias alias="JFTeacher" type="com.jf.model.JFTeacher" />
+	<typeAlias alias="JFTeacherExample" type="com.jf.model.JFTeacherExample" />
+	<typeAlias alias="JFGroupInfo" type="com.jf.model.JFGroupInfo" />
+	<typeAlias alias="JFGroupInfoExample" type="com.jf.model.JFGroupInfoExample" />
+	<typeAlias alias="JFSpeech" type="com.jf.model.JFSpeech" />
+	<typeAlias alias="JFSpeechExample" type="com.jf.model.JFSpeechExample" />
+	<typeAlias alias="JFComment" type="com.jf.model.JFComment" />
+	<typeAlias alias="JFCommentExample" type="com.jf.model.JFCommentExample" />
+	<typeAlias alias="JFTeacherMark" type="com.jf.model.JFTeacherMark" />
+	<typeAlias alias="JFTeacherMarkExample" type="com.jf.model.JFTeacherMarkExample" />
+	<typeAlias alias="JFTeacherMark" type="com.jf.model.JFTeacherMark" />
+	<typeAlias alias="JFTeacherMarkExample" type="com.jf.model.JFTeacherMarkExample" />
+	<typeAlias alias="JFGroupMark" type="com.jf.model.JFGroupMark" />
+	<typeAlias alias="JFGroupMarkExample" type="com.jf.model.JFGroupMarkExample" />
+	<typeAlias alias="JFClass" type="com.jf.model.JFClass" />
+	<typeAlias alias="JFClassExample" type="com.jf.model.JFClassExample" />
+	</typeAliases>
+		
+	<mappers>
+	<mapper resource="com/jf/xml/JFUserMapper.xml" />
+	<mapper resource="com/jf/xml/JFPercentMapper.xml" />
+	<mapper resource="com/jf/xml/JFStudentMapper.xml" />
+	<mapper resource="com/jf/xml/JFTeacherMapper.xml" />
+	<mapper resource="com/jf/xml/JFGroupInfoMapper.xml" />
+	<mapper resource="com/jf/xml/JFSpeechMapper.xml" />
+	<mapper resource="com/jf/xml/JFCommentMapper.xml" />
+	<mapper resource="com/jf/xml/JFTeacherMarkMapper.xml" />
+	<mapper resource="com/jf/xml/JFGroupMarkMapper.xml" />
+	<mapper resource="com/jf/xml/JFClassMapper.xml" />
+	</mappers>
+</configuration>

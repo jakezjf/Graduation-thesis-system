@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MyHtml.html</title>
+
+<meta name="keywords" content="keyword1,keyword2,keyword3">
+<meta name="description" content="this is my page">
+<meta name="content-type" content="text/html; charset=UTF-8">
+<link href="${base}/resource/hsr/acedown/assets/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/font-awesome.min.css" />
+<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace.min.css" />
+<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace-rtl.min.css" />
+<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace-skins.min.css" />
+<script src="${base}/resource/hsr/assets/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="${base!}/resource/js/ajaxfileupload.js"></script>
+ <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+</head>
+
+<body style='width:99%;'>
+	<div class="page-content">
+		<div class="page-header">
+			<h1>
+				个人信息 <i class="icon-double-angle-right"></i> <small> 个人信息修改 </small>
+			</h1>
+		</div>
+		<!-- /.page-header -->
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal" id="bankType" action="${base!}/teacherInfo/update.do" method="post" role="form"  name="form1" >
+
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1" >用户名</label>
+						<div class="col-sm-9">
+							<input type="text" name="teaId"  readonly="readonly" class="col-xs-10 col-sm-5"  value="${teacher.teaId!}"/> <span id="namePrompt">*</span>
+						</div>
+					</div>
+
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1">姓名</label>
+						<div class="col-sm-9">
+							<input type="text" name="teaName" class="col-xs-10 col-sm-5" value="${teacher.teaName}" /> <span id="namePrompt">*</span>
+						</div>
+					</div>
+
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1">密码</label>
+						<div class="col-sm-9">
+							<input type="password"   id="password"  name="password" class="col-xs-10 col-sm-5" value="${user.password!}"/> <span id="namePrompt">*</span>
+							<label><input type="checkbox" id="show_password" />显示密码</label>  
+						</div>
+					</div>
+
+					
+					<div class="text" style=" text-align:center;">*号为必填项
+					</div>
+					<div class="space-4"></div>
+					<div>
+						<div class="space-4"></div>
+						<div class="col-md-offset-3 col-md-9">
+							<button class="btn btn-info" id="forSubmit" type="button" onclick="addApply()">
+								<i class="icon-ok bigger-110"></i> 修改
+							</button>
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset">
+								<i class="icon-undo bigger-110"></i> 重置
+							</button>
+						</div>
+					</div>
+
+				</form>
+				
+				<script type="text/javascript">
+				$(function(){
+					var $password = $('#password'), 
+						$passwordInput = $('<input type="text"  name="password"  class="col-xs-10 col-sm-5"       "'  + '" />');
+					$('#show_password').click(function(){
+						if(this.checked){
+							$password.replaceWith($passwordInput.val($password.val()));
+						}else{
+							$passwordInput.replaceWith($password.val($passwordInput.val()));
+						}
+					});
+				}); 
+
+				</script>
+				
+				<script type="text/javascript">
+					function addApply(){
+       			var form = document.getElementById("bankType");
+          		 if(form1.teaId.value==""){
+          			 alert("用户名不能为空");
+          			return false;
+          		  }
+          		if(form1.teaName.value==""){
+         			 alert("姓名不能为空");
+         			return false;
+         		  }
+          		if(form1.password.value==""){
+        			 alert("密码不能为空");
+        			return false;
+        		  }
+       				form.submit();
+       		}
+					</script>
+				
+				
+				<script type="text/javascript">
+				  $("#uploadImage").click(function(){
+		           		uploadimg();
+		           })
+		           function uploadimg(){
+	            	   $.ajaxFileUpload({
+	            	        url: '${base!}/common/uploadImg.do',
+	            	        secureuri: false,
+	            	        fileElementId: 'uploadFile',
+	            	        dataType: 'json',
+	            	        contentType:'text/json',
+	            	        success: function(data,status){
+	            	       		$("#imgPrivew").attr("src",data.serverpath); 
+	            	       		$("#headImg").val(data.serverpath); 
+	            	        	alert("上传成功！");
+	            	        },
+	            	        error: function (data, status, e){
+	            	            alert(e);
+	            	        }
+	            	    });
+					}
+	               
+					function add() {
+						var form = document.getElementById("bankType")
+						form.submit();
+					}
+				</script>
+
+
+			</div>
+			<!-- /.col -->
+		</div>
+		<!-- /.row -->
+	</div>
+	<!-- /.page-content -->
+</body>
+</html>

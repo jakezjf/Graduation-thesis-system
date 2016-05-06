@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>答辩评语表</title>
+<link rel="stylesheet" type="text/css" href="${base}/resource/style.css">
+<style media="print" type="text/css">
+.noprint{display:none;}
+.main_cont{ height:978px;width:initial;padding:0;}
+</style>
+<script src="${base}/resource/jquery.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="main_cont">
+	<input onclick="javascript:window.print()"  type="button" value="打印" class="noprint"/>
+	<ul class="main_cont_ul">
+		<li class="ul_title">黑龙江大学本科生毕业论文（设计）评语表</li>
+    </ul>
+    <table class="tableb" border="1">
+        <tbody>
+            <tr align="center">
+                <td width="100">学院</td>
+                <td width="300">信息科学与技术学院</td>
+                <td width="100">专业</td>
+                <td width="300">网络工程</td>
+            </tr>
+            <tr align="center">
+                <td>年级</td>
+                <td>${year!}</td>
+                <td>学号</td>
+                <td>${student.stuId!}</td>
+            </tr>
+            <tr align="center">
+                <td>姓名</td>
+                <td>${student.stuName!}</td>
+                <td>成绩</td>
+                <td>${student.score!}</td>
+            </tr>
+            <tr>
+                <td align="left" colSpan="2">毕业论文（设计）题目</td>
+                <td align="center" colSpan="2">${student.speechTitle!}</td>
+            </tr>
+            <tr>
+                <td align="center" rowspan="2">指<br>导<br>教<br>师<br>评<br>语</td>
+                <td height="120px" colspan="3" class="limit">${student.teaCom!}</td>
+            </tr>
+            <tr>
+                <td colspan="3"><span>指导教师签名：</span><span class="floatright">年&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;日&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+            </tr>
+            
+            <tr>
+                <td align="center" rowspan="2">答<br>辩<br>委<br>员<br>会<br>评<br>语</td>
+                <td height="120px" colspan="3" class="limit">${student.groCom!}</td>
+            </tr>
+            <tr>
+                <td colspan="3"><span>答辩小组组长签名：</span><span class="floatright">年&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;日&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+            </tr>
+            
+            <tr>
+                <td align="center" rowspan="2">院<br>学<br>术<br>委<br>员<br>会<br>意<br>见</td>
+                <td height="120px" colspan="3">同意答辩小组意见，建议授予学士学位</td>
+            </tr>
+            <tr>
+                <td colspan="3"><span>院学术委员会主任签名：</span><span class="floatright">年&nbsp;&nbsp;&nbsp;&nbsp;月&nbsp;&nbsp;&nbsp;&nbsp;日&nbsp;&nbsp;&nbsp;&nbsp;学院公章: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+            </tr>
+        </tbody>
+<!-- 限制字符个数 -->
+    </table>
+</div>
+
+
+<script>
+$(document).ready(function(){
+    $(".limit").each(function(){
+        var maxwidth=150;
+        if($(this).text().length>maxwidth){
+            $(this).text($(this).text().substring(0,maxwidth));
+            $(this).html($(this).html()+'...');
+        }
+    });
+});
+</script>
+</body>
+</html>

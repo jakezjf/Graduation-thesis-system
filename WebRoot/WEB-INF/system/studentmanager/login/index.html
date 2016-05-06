@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <title>信息科学与技术学院-毕业论文答辩系统</title>
+
+        <!-- load stylesheets -->
+        <link rel="stylesheet" href="${base}/resource/student/css/bootstrap.min.css">                                                <!-- Bootstrap style -->
+        <link rel="stylesheet" href="${base}/resource/student/css/flexslider.css">                                                   <!-- Flexslider style -->       
+        <link rel="stylesheet" href="${base}/resource/student/css/templatemo-style.css">                                             <!-- Templatemo style -->
+
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    
+    <body class="page">
+        
+            
+            <!-- background images -->
+            <div class="page-bg-imgs-list">
+                <img src="${base}/resource/student/img/story-bg-1.jpg" id="page-1-img" class="main-img" alt="About">
+                <img src="${base}/resource/student/img/story-bg-2.jpg" id="page-2-img" alt="Gallery">
+                <img src="${base}/resource/student/img/story-bg-3.jpg" id="page-3-img" alt="Services">
+                <img src="${base}/resource/student/img/story-bg-4.jpg" id="page-4-img" alt="Contact">                            
+            </div>
+            
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-5">
+                        
+                        <div class="header">
+
+                            <!-- site title -->
+                            <header class="box box-white">
+                                <a href="javascript:void(0)" class="js-site-title">
+                                    <h2 class="box-text">欢迎光临&nbsp;&nbsp;<#if student ??>${student.stuName!}<#else>游客</#if></h2>    
+                                </a>            
+                            </header>
+                            
+                            <!-- site navigation -->
+                            <nav class="js-nav">
+                                <ul class="nav-items-container">
+
+                                    <li data-nav-item-id="page-1" class="block-keep-ratio block-keep-ratio-1-1 block-width-half box box-white box-nav-item js-nav-item pull-xs-left">
+                                        <a href="#page-1" class="block-keep-ratio-content box-nav-item-link">
+                                            <span class="box-text box-text-nav-item flexbox-center">答辩组</span>
+                                        </a>
+                                    </li>
+
+                                    <li data-nav-item-id="page-2" class="block-keep-ratio block-keep-ratio-1-1 block-width-half box box-white box-nav-item js-nav-item pull-xs-right">
+                                        <a href="#page-2" class="block-keep-ratio-content box-nav-item-link">
+                                            <span class="box-text box-text-nav-item flexbox-center">指导教师</span>
+                                        </a>
+                                    </li>
+
+                                    <li data-nav-item-id="page-3" class="block-keep-ratio block-keep-ratio-1-1 block-width-half box box-white box-nav-item js-nav-item pull-xs-left">
+                                        <a href="#page-3" class="block-keep-ratio-content box-nav-item-link">
+                                            <span class="box-text box-text-nav-item flexbox-center">成绩查询</span>
+                                        </a>
+                                    </li>
+
+                                    <li data-nav-item-id="page-4" class="block-keep-ratio block-keep-ratio-1-1 block-width-half box box-white box-nav-item js-nav-item pull-xs-right">
+                                        <a href="#page-4" class="block-keep-ratio-content box-nav-item-link">
+                                            <span class="box-text box-text-nav-item flexbox-center">修改密码</span>
+                                        </a>
+                                    </li>
+
+									<li data-nav-item-id="page-5" class="block-keep-ratio block-keep-ratio-1-1 block-width-half box box-white box-nav-item js-nav-item pull-xs-left">
+                                        <a href="${base}/login/logout.do" class="block-keep-ratio-content box-nav-item-link">
+                                            <span class="box-text box-text-nav-item flexbox-center">退出</span>
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </nav>    
+                        </div> <!-- .header -->
+
+                    </div>
+                    
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-7">
+                        <div class="content-wrapper js-content-wrapper">
+                            <!-- about -->
+                            <section data-page-id="page-1" class="content js-content">
+                                
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">答辩组信息</h2>
+                                </header>
+                                <div class="content-text">
+                                   <h2>答辩信息：</h2><br>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;<h3>答辩组编号：<#if groupInfo ??>${groupInfo.groId!}<#else>无</#if></h3><br>
+                                  &nbsp;&nbsp;&nbsp;&nbsp;<h3>答辩时间：<#if groupInfo ??>${groupInfo.groTime?datetime!}<#else>未分配</#if></h3><br>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;<h3>答辩地点：<#if groupInfo ??>${groupInfo.groAddress!}<#else>未分配</#if></h3><br>
+                                </div>            
+
+                            </section> <!-- #about -->
+
+                            <!-- gallery -->
+                            <section data-page-id="page-2" class="content content-gallery js-content">
+                                
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">指导老师信息</h2>
+                                </header>
+                                
+                                <div class="content-text content-text-gallery">
+                                    <div class="flexslider-wrapper">
+                                        <div id="slider" class="flexslider">
+                                               <h2>你的指导老师是：</h2><br>
+                                               <h3><#if teacher ??>${teacher.teaName!}<#else>无</#if></h3>
+                                        </div> <!-- #slider -->
+                                      
+                                        <div id="carousel" class="flexslider">
+                                            <ul class="slides">
+                                                
+                                            </ul>
+                                        </div>  <!-- #carousel -->
+
+                                    </div>
+                                        
+                                </div>            
+
+                            </section> <!-- #gallery -->
+                            
+                            <!-- services -->
+                            <section data-page-id="page-3" class="content js-content">
+                                
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">成绩查询</h2>
+                                </header>
+                                
+                                <div class="content-text">
+                                    答辩组总分 ：<#if groupScore ??>${groupScore!}<#else>未评分</#if><br>
+                                    指导总分 ：<#if teacherScore ??>${teacherScore!}<#else>未评分</#if><br>
+                                    最终得分 ：<#if allScore ??>${allScore!}<#else>未评分</#if>
+                                </div>      
+                            </section> <!-- #services -->
+
+                            <!-- contact -->
+                            <section data-page-id="page-4" class="content js-content">
+                                
+                                <header class="box box-black margin-b-20">
+                                    <h2 class="box-text page-title-text">修改密码</h2>
+                                </header>
+                                
+                                <div class="content-text">
+                                    <form action="${base}/studentlogin/update.do<#if student ??>?id=${student.stuId!}</#if>" method="post" class="contact-form"  id="bankType" name="form1">
+
+                                        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 form-group-2-col-right">
+                                            <input type="password" id="contact_password" name="password" class="form-control" placeholder="Password" required/>
+                                        </div><br><br><br>
+                                        <div class="form-group col-xs-12 col-sm-12 col-md-6 col-lg-6 form-group-2-col-right">
+                                            <input type="password" id="contact_password1" name="password1" class="form-control" placeholder="Again Password" required/>
+                                        </div><br><br><br>
+                                        <button class="btn btn-primary submit-btn"  type="button" onclick="addApply()">提交</button>
+
+                                    </form> 
+                                    <script type="text/javascript">
+					function addApply(){
+       			var form = document.getElementById("bankType");
+       		  if(form1.password.value==""){
+       			 alert("密码不能为空");
+       			return false;
+       		  }
+       		if(form1.password1.value==""){
+      			 alert("密码不能为空");
+      			return false;
+      		  }
+       		if(form1.password1.value!=form1.password.value){
+      			 alert("两次密码不想等，请检查！");
+      			return false;
+      		  }
+       		form.submit();
+       		}
+					</script>                          
+                                </div>            
+
+                            </section> <!-- #contact -->
+                        </div>
+                    </div>
+
+                </div>
+                    
+
+            </div>  <!-- .container-fluid -->
+
+        <div id="preloader">
+            <div id="status">&nbsp;</div>
+        </div><!-- /#preloader -->      
+            
+        <!-- load JS files -->
+        <script src="${base}/resource/student/js/jquery-1.11.3.min.js"></script> <!-- jQuery -->
+        <script src="${base}/resource/student/js/jquery.flexslider-min.js"></script> <!-- Flex Slider -->
+        <script src="${base}/resource/student/js/jquery.backstretch.min.js"></script> <!-- Backstretch http://srobbin.com/jquery-plugins/backstretch/ -->
+        <script src="${base}/resource/student/js/templatemo-script.js"></script> <!-- Templatemo scripts -->
+    
+    </body>
+</html>

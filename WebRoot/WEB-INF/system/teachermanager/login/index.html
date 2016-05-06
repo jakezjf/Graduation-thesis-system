@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>毕业论文答辩系统</title>
+		<meta name="keywords" content="管理系统" />
+		<meta name="description" content="管理系统" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link href="${base}/resource/hsr/acedown/assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace-skins.min.css" />
+		<script src="${base}/resource/hsr/acedown/assets/js/ace-extra.min.js"></script>
+		<style>
+			.myul a{font-size:13px;}
+		</style>
+		
+	</head>
+	<body >
+	<!--head开始-->
+			<div class="navbar navbar-default" id="navbar">
+						<script type="text/javascript">
+							try{ace.settings.check('navbar' , 'fixed')}catch(e){}
+						</script>
+			
+						<div class="navbar-container" id="navbar-container">
+							<div class="navbar-header pull-left">
+								<a href="#" class="navbar-brand">
+							
+									<small>
+<!-- 										<i class="icon-leaf"></i> -->
+										<img alt="" src="${base}/resource/hsr/acedown/logo.png"  style="height: 50px;" >
+									信息科学与技术学院--毕业论文答辩系统			
+									</small>					
+								</a><!-- /.brand -->
+							</div><!-- /.navbar-header -->
+				
+							<div class="navbar-header pull-right" role="navigation">
+								<ul class="nav ace-nav">
+							<li class="light-blue">
+										<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+											<img class="nav-user-photo" src="${base!}/resource/hsr/acedown/assets/avatars/user.jpg" alt="Jason's Photo" />
+											<span class="user-info">
+												<small>欢迎光临,</small><#if teacher ??>${teacher.teaName!}</#if></span>
+			
+											<i class="icon-caret-down"></i>							</a>
+			
+										<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+											<li>
+												<a href="#">
+													<i class="icon-cog"></i>
+													设置									</a>								</li>
+			
+											<li>
+												<a href="#">
+													<i class="icon-user"></i>
+													个人资料									</a>								</li>
+			
+			                                <li>
+												<a href="serviceOnlien.html">
+													<i class="icon-user"></i>
+													在线客服									</a>								</li>
+			
+											<li class="divider"></li>
+			
+											<li>
+												<a href="${base}/login/logout.do">
+													<i class="icon-off"></i>
+													退出									</a>								</li>
+										</ul>
+									</li>
+								
+					
+								</ul><!-- /.ace-nav -->
+							
+							</div><!-- /.navbar-header -->
+						</div><!-- /.container -->
+					</div>
+	<!--head结束-->
+		<div class="main-container" id="main-container">
+			<script type="text/javascript">
+				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+			</script>
+			<div class="main-container-inner">
+	<!--左侧导航开始-->
+				<div class="sidebar" id="sidebar">
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'fixed')}catch(e){}
+					</script>
+
+<!--导航开始-->					
+					<ul class="nav nav-list">
+					<!--控制台-->
+						<li>
+								<a href="#" class="dropdown-toggle">
+								<i class="icon-group"></i>
+								<span class="menu-text">首页 </span>						
+							</a>							
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-group"></i>
+								<span class="menu-text"> 个人信息 </span>
+								<b class="arrow icon-angle-down"></b>							
+							</a>
+							
+							<ul class="submenu">
+								<li>
+									<a href="${base!}/teacherInfo/pagelist.do"  target="mainFrom">
+										<i class="icon-double-angle-right"></i>
+										个人信息						
+									</a>								
+								</li>
+								<li>
+									<a href="${base!}/teacherInfo/student.do" target="mainFrom">
+										<i class="icon-double-angle-right"></i>
+										指导学生信息				
+									</a>
+								</li>
+							</ul>
+						</li>
+						
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-group"></i>
+								<span class="menu-text"> 小组信息</span>
+								<b class="arrow icon-angle-down"></b>							
+							</a>
+							
+							<ul class="submenu">
+								<li>
+									<a href="${base!}/teachergroup/pagelist.do" target="mainFrom"> 
+										<i class="icon-double-angle-right"></i>
+										教师信息				
+									</a>
+								</li>
+								<li>
+									<a href="${base!}/teachergroup/studentPagelist.do"target="mainFrom">
+										<i class="icon-double-angle-right"></i>
+										学生信息						
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-group"></i>
+								<span class="menu-text"> 答辩操作 </span>
+								<b class="arrow icon-angle-down"></b>							
+							</a>
+							
+							<ul class="submenu">
+								<li>
+									<a href="${base!}/teachergroup/toMark.do" target="mainFrom">
+										<i class="icon-double-angle-right"></i>
+										打分操作							
+									</a>								
+								</li>
+								<li>
+									<a href="${base!}/groComment/list.do"target="mainFrom">
+										<i class="icon-double-angle-right"></i>
+										评语操作					
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-group"></i>
+								<span class="menu-text"> 指导操作 </span>
+								<b class="arrow icon-angle-down"></b>							
+							</a>
+							
+							<ul class="submenu">
+								<li>
+									<a href="${base!}/teacherMark/student.do" target="mainFrom">
+										<i class="icon-double-angle-right"></i>
+										打分操作							
+									</a>								
+								</li>
+								<li>
+									<a href="${base!}/teacherComment/comment.do"target="mainFrom">
+										<i class="icon-double-angle-right"></i>
+										评语操作					
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="dropdown-toggle">
+								<i class="icon-group"></i>
+								<span class="menu-text"> 打印操作 </span>
+								<b class="arrow icon-angle-down"></b>							
+							</a>
+							
+							<ul class="submenu">
+								<li>
+									<a href="${base!}/teacherPrinter/teacherScore.do" target="mainFrom">
+										<i class="icon-double-angle-right"></i>
+										打印指导成绩单					
+									</a>								
+								</li>
+								<li>
+									<a href="${base!}/teacherPrinter/student.do"target="mainFrom">
+										<i class="icon-double-angle-right"></i>
+										打印答辩成绩单				
+									</a>
+								</li>
+								<#if teacher ?? && teacher.groType?? && (teacher.groType=1) >
+								<li>
+									<a href="${base!}/teacherPrinter/comment.do"target="mainFrom">
+										<i class="icon-double-angle-right"></i>
+										评语打印					
+									</a>
+								</li>
+								<li>
+									<a href="${base!}/teacherPrinter/score.do?stuId=20143129" target="mainFrom">
+										<i class="icon-double-angle-right"></i>
+										成绩统计打印					
+									</a>
+								</li>
+								</#if>
+							</ul>
+						</li>
+						
+					
+					</ul>
+					<div class="sidebar-collapse" id="sidebar-collapse">
+						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>					
+					</div>
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+					</script>
+				</div>
+			<div class="main-content">
+			  		<iframe id="myiframe" src="${base}/login/index.do" width="100%"  frameborder="0" scrolling="no" marginheight="0" marginwidth="0" onLoad="iFrameHeight()"scrolling="no"   name="mainFrom" frameborder='0' ></iframe>
+				</div>
+			</div>
+			</div>
+			
+				<!-- 自适应 -->
+			<script type="text/javascript" language="javascript">   
+function iFrameHeight() {   
+var ifm= document.getElementById("myiframe");   
+var subWeb = document.frames ? document.frames["myiframe"].document : ifm.contentDocument;   
+if(ifm != null && subWeb != null) {
+   ifm.height = subWeb.body.scrollHeight;
+   ifm.width = subWeb.body.scrollWidth;
+}   
+}   
+</script>
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='${base}/resource/hsr/acedown/assets/js/jquery-2.0.3.min.js'>"+"<"+"script>");
+		</script>
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='${base}/resource/hsr/acedown/assets/js/jquery.mobile.custom.min.js'>"+"<"+"script>");
+		</script>
+		<script src="${base}/resource/hsr/acedown/assets/js/bootstrap.min.js"></script>
+		<script src="${base}/resource/hsr/acedown/assets/js/typeahead-bs2.min.js"></script>
+		<script src="${base}/resource/hsr/acedown/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<script src="${base}/resource/hsr/acedown/assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="${base}/resource/hsr/acedown/assets/js/jquery.slimscroll.min.js"></script>
+		<script src="${base}/resource/hsr/acedown/assets/js/jquery.easy-pie-chart.min.js"></script>
+		<script src="${base}/resource/hsr/acedown/assets/js/jquery.sparkline.min.js"></script>
+		<script src="${base}/resource/hsr/acedown/assets/js/ace-elements.min.js"></script>
+		<script src="${base}/resource/hsr/acedown/assets/js/ace.min.js"></script>
+	</body>
+</html>

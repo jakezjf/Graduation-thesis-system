@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+html,body{height:100%; max-height:100%; 
+//overflow-y: hidden; 
+background:#428fd7; color:#333; font:12px/180% 宋体, Helvetica, Times New Roman, Arial; 
+//min-width:1024px; 
+//width:expression_r( document.body.clientWidth < 1240 ? "1024px" : "auto" );
+}
+*{list-style:none; margin:0; padding:0; border:0;}
+img,li{cursor: pointer;vertical-align:top; font-family:"微软雅黑","Microsoft Yahei","宋体",宋体, Helvetica, Times New Roman, Arial; font-size:12px;}
+table{font-family:"微软雅黑","Microsoft Yahei","宋体",宋体, Helvetica, Times New Roman, Arial; font-size:12px;text-align: center;}
+input,select,textarea{color:#333; font-family:"微软雅黑","Microsoft Yahei","宋体",宋体, Helvetica, Times New Roman, Arial; font-size:12px; border:1px solid #c3c3c3;}
+input{height:21px;text-align: center;vertical-align: bottom;
+margin-bottom: 1px;
+margin-top: -4px;}
+select{height:23px;}
+.ipt_checkbox{width:16px; height:16px; border:none;}
+.clearboth{clear:both;}
+/* end global */
+a{color:#333; cursor:hand;}
+a:hover{color:#666;text-decoration: none;}
+/* end global a */
+/*-- end --*/

@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* CSS Document */
+.kuang1{
+	width:90%;
+	border:solid 2px #CCCCCC;
+	background-color:#F5F5F5;
+	border-radius:5px;}
+.kuang2{
+	height: 81px;
+	width:80%;
+	margin-left:8px;
+	border-bottom:solid 1px #CCCCCC;}
+.kuang2_left{
+	height:66px;
+	width:80%;
+	float:left;
+	margin:15px 0px 0px 5px;}
+.kuang2_right{
+    float:right;
+	height:66px;
+	width:80px;
+	margin:15px 10px 0px 0px;}
+.select{
+	margin:8px;
+	width:70px;}
+.title{
+	font-weight:bold;
+	width:430px;
+	height:20px;}
+.neir{
+	font-size : 10px;
+	width:710px;
+	height:88px;
+	margin-top:15px;}
+.nihao{
+	margin:0px;}
+
+

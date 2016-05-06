@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>答辩小组用表</title>
+<link rel="stylesheet" type="text/css" href="${base}/resource/style.css">
+<style media="print" type="text/css">
+.noprint{display:none;}
+.main_cont{ height:978px;width:initial;padding:0;}
+</style>
+</head>
+
+<body>
+<div class="main_cont">
+	<input onclick="javascript:window.print()"  type="button" value="打印" class="noprint"/>
+	<ul class="main_cont_ul">
+	  <li class="ul_titleb">本科生毕业论文（设计）成绩评分表（理科实验类）</li>
+      <li class="ul_titlea">（答辩小组成员用）</li>
+      <li class="ul_titlec">学院：信息科学与技术学院&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;班级：<#if student?? >${student.className!}</#if>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名： <#if student?? >${student.stuName!}</#if></li>
+                
+    </ul>
+    
+	<table class="tableb" border="1">
+        <tbody align="center">
+            <tr>
+                <td rowspan="2" width="80px">评价内容</td>
+                <td rowspan="2">具体要求</td>
+                <td rowspan="2">分值</td>
+                <td colspan="5">评分</td>
+            </tr>
+            <tr>
+                <td class="table_sco">A</td>
+                <td class="table_sco">B</td>
+                <td class="table_sco">C</td>
+                <td class="table_sco">D</td>
+                <td class="table_sco">E</td>
+            </tr>
+            <tr>
+                <td rowspan="2">报告情况</td>
+                <td rowspan="2" align="left">思路清晰，语言表达准确；<br>
+                基础理论，专业知识坚实。</td>
+                <td class="table_sco" rowspan="2">20</td>
+                <td class="table_sco">20-18</td>
+                <td class="table_sco">17-15</td>
+                <td class="table_sco">14-12</td>
+                <td class="table_sco">11-9</td>
+                <td class="table_sco">&lt;=8</td>
+            </tr>
+            <tr>
+                <td class="table_sco"><#if groupMark.groA ?? && (groupMark.groA>17) >${groupMark.groA!}</#if></td>
+                <td class="table_sco"><#if groupMark.groA ?? && (groupMark.groA<18) && (groupMark.groA>14)>${groupMark.groA!}</#if></td>
+                <td class="table_sco"><#if groupMark.groA ?? && (groupMark.groA<15) && (groupMark.groA>11) >${groupMark.groA!}</#if></td>
+                <td class="table_sco"><#if groupMark.groA ?? && (groupMark.groA<12) && (groupMark.groA>8) >${groupMark.groA!}</#if></td>
+                <td class="table_sco"><#if groupMark.groA ?? && (groupMark.groA<9) >${groupMark.groA!}</#if></td>
+            </tr>
+            
+            <tr>
+                <td rowspan="2">研究方法</td>
+                <td rowspan="2" align="left">采用新的方法、技术或对所用技术做了改进。<br>基础理论，专业知识坚实。</td>
+                <td rowspan="2">10</td>
+                <td class="table_sco">10</td>
+                <td class="table_sco">9</td>
+                <td class="table_sco">8</td>
+                <td class="table_sco">7</td>
+                <td class="table_sco">&lt;=6</td>
+            </tr>
+            <tr>
+                <td class="table_sco"><#if groupMark.groB?? && (groupMark.groB=10) >${groupMark.groB!}</#if></td>
+                <td class="table_sco"><#if groupMark.groB?? && (groupMark.groB=9) >${groupMark.groB!}</#if></td>
+                <td class="table_sco"><#if groupMark.groB?? && (groupMark.groB=8) >${groupMark.groB!}</#if></td>
+                <td class="table_sco"><#if groupMark.groB?? && (groupMark.groB=7) >${groupMark.groB!}</#if></td>
+                <td class="table_sco"><#if groupMark.groB?? && (groupMark.groB<7) >${groupMark.groB!}</#if></td>
+            </tr>
+            
+            <tr>
+                <td rowspan="2">分析和解决问题能力</td>
+                <td rowspan="2" align="left">表现出对实际问题有较强的分析能力和解决能力。</td>
+                <td rowspan="2">10</td>
+                <td class="table_sco">10</td>
+                <td class="table_sco">9</td>
+                <td class="table_sco">8</td>
+                <td class="table_sco">7</td>
+                <td class="table_sco">&lt;=6</td>
+            </tr>
+            <tr>
+                <td class="table_sco"><#if groupMark.groC?? && (groupMark.groC=10) >${groupMark.groC!}</#if></td>
+                <td class="table_sco"><#if groupMark.groC?? && (groupMark.groC=9) >${groupMark.groC!}</#if></td>
+                <td class="table_sco"><#if groupMark.groC?? && (groupMark.groC=8) >${groupMark.groC!}</#if></td>
+                <td class="table_sco"><#if groupMark.groC?? && (groupMark.groC=7) >${groupMark.groC!}</#if></td>
+                <td class="table_sco"><#if groupMark.groC?? && (groupMark.groC<7) >${groupMark.groC!}</#if></td>
+            </tr>
+            
+            <tr>
+                <td rowspan="2">论文(设计)结果</td>
+                <td rowspan="2" align="left">论文(设计)结果达到或超出预期结果；<br>论文(设计)结果有应用价值；</td>
+                <td rowspan="2">10</td>
+                <td class="table_sco">10</td>
+                <td class="table_sco">9</td>
+                <td class="table_sco">8</td>
+                <td class="table_sco">7</td>
+                <td class="table_sco">&lt;=6</td>
+            </tr>
+            <tr>
+                 <td class="table_sco"><#if groupMark.groD?? && (groupMark.groD=10) >${groupMark.groD!}</#if></td>
+                <td class="table_sco"><#if groupMark.groD?? && (groupMark.groD=9) >${groupMark.groD!}</#if></td>
+                <td class="table_sco"><#if groupMark.groD?? && (groupMark.groD=8) >${groupMark.groD!}</#if></td>
+                <td class="table_sco"><#if groupMark.groD?? && (groupMark.groD=7) >${groupMark.groD!}</#if></td>
+                <td class="table_sco"><#if groupMark.groD?? && (groupMark.groD<7) >${groupMark.groD!}</#if></td>
+            </tr>
+            
+            <tr>
+                <td rowspan="2">撰写质量</td>
+                <td rowspan="2" align="left">论文(设计)写作格式规范，论文中的图表、设计中的图纸在书写和制作上规范，能够执行国家有关标准；<br>文字通顺，技术用语准确。</td>
+                <td rowspan="2">20</td>
+                <td class="table_sco">20-18</td>
+                <td class="table_sco">17-15</td>
+                <td class="table_sco">14-12</td>
+                <td class="table_sco">11-9</td>
+                <td class="table_sco">&lt;=8</td>
+            </tr>
+            <tr>
+               <td class="table_sco"><#if groupMark.groE ?? && (groupMark.groE>17) >${groupMark.groE!}</#if></td>
+                <td class="table_sco"><#if groupMark.groE ?? && (groupMark.groE<18) && (groupMark.groE>14)>${groupMark.groE!}</#if></td>
+                <td class="table_sco"><#if groupMark.groE ?? && (groupMark.groE<15) && (groupMark.groE>11) >${groupMark.groE!}</#if></td>
+                <td class="table_sco"><#if groupMark.groE ?? && (groupMark.groE<12) && (groupMark.groE>8) >${groupMark.groE!}</#if></td>
+                <td class="table_sco"><#if groupMark.groE ?? && (groupMark.groE<9) >${groupMark.groE!}</#if></td>
+            </tr>
+            
+            <tr>
+                <td rowspan="2">答辩</td>
+                <td rowspan="2" align="left">回答问题有理论根据，基本概念清楚，主要问题回答准确、有深度。</td>
+                <td rowspan="2">20</td>
+                <td class="table_sco">20-18</td>
+                <td class="table_sco">17-15</td>
+                <td class="table_sco">14-12</td>
+                <td class="table_sco">11-9</td>
+                <td class="table_sco">&lt;=8</td>
+            </tr>
+            <tr>
+                <td class="table_sco"><#if groupMark.groF ?? && (groupMark.groF>17) >${groupMark.groF!}</#if></td>
+                <td class="table_sco"><#if groupMark.groF ?? && (groupMark.groF<18) && (groupMark.groF>14)>${groupMark.groF!}</#if></td>
+                <td class="table_sco"><#if groupMark.groF ?? && (groupMark.groF<15) && (groupMark.groF>11) >${groupMark.groF!}</#if></td>
+                <td class="table_sco"><#if groupMark.groF ?? && (groupMark.groF<12) && (groupMark.groF>8) >${groupMark.groF!}</#if></td>
+                <td class="table_sco"><#if groupMark.groF ?? && (groupMark.groF<9) >${groupMark.groF!}</#if></td>
+            </tr>
+            
+            <tr>
+                <td rowspan="2">创新</td>
+                <td rowspan="2" align="left">对前人工作有改进或突破，有独特见解。</td>
+                <td rowspan="2">10</td>
+                <td class="table_sco">10</td>
+                <td class="table_sco">9</td>
+                <td class="table_sco">8</td>
+                <td class="table_sco">7</td>
+                <td class="table_sco">&lt;=6</td>
+
+            </tr>
+            <tr>
+                <td class="table_sco"><#if groupMark.groG?? && (groupMark.groG=10) >${groupMark.groG!}</#if></td>
+                <td class="table_sco"><#if groupMark.groG?? && (groupMark.groG=9) >${groupMark.groG!}</#if></td>
+                <td class="table_sco"><#if groupMark.groG?? && (groupMark.groG=8) >${groupMark.groG!}</#if></td>
+                <td class="table_sco"><#if groupMark.groG?? && (groupMark.groG=7) >${groupMark.groG!}</#if></td>
+                <td class="table_sco"><#if groupMark.groG?? && (groupMark.groG<7) >${groupMark.groG!}</#if></td>
+            </tr>
+            
+            <tr>
+                <td></td>
+                <td></td>
+                <td>总分</td>
+                <td colspan="5"><#if score??>${score!}</#if></td>
+            </tr>
+        </tbody>
+	</table>
+    
+ 	<ul class="main_cont_ul">
+      <li class="ul_titlec"><span>评分教师： <#if teaName ??  >${teaName!}</#if></span><span class="floatright">签字确认：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+                
+    </ul>   
+    
+    
+    
+</div>
+</body>
+</html>

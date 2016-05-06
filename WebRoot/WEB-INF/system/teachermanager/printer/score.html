@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>个人成绩表</title>
+<link rel="stylesheet" type="text/css" href="${base}/resource/style.css">
+<style media="print" type="text/css">
+.noprint{display:none;}
+.main_cont{ height:978px;width:initial;padding:0;}
+</style>
+</head>
+
+<body>
+<div class="main_cont">
+	<input onclick="javascript:window.print()"  type="button" value="打印" class="noprint"/>
+	<ul class="main_cont_ul">
+	  <li class="ul_title">本科生毕业论文（设计）成绩统计表</li>
+      <li class="ul_titlec">学院：信息科学与技术学院&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;班级：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                
+    </ul>
+    <table class="tabled" width="200" border="1">
+  <tbody>
+    <tr align="center">
+      <td>&nbsp;</td>
+      <td>评分人姓名</td>
+      <td>成绩</td>
+      <td>平均成绩</td>
+      <td>占总成绩的百分比</td>
+      <td>加权成绩</td>
+      <td>总成绩</td>
+    </tr>
+    <#list groupMarks as groupMarks>
+    <#if groupMarks_index == 0>
+    <tr align="center">
+    
+      <td rowspan="4">答辩委员会成绩</td>
+      
+      <td>${groupMarks.teaName!}</td>
+      <td>${groupMarks.score!}</td>
+      
+      <td rowspan="4">3</td>
+      <td rowspan="4">&nbsp;</td>
+      <td rowspan="4">&sdnbsp;</td>
+      <td rowspan="4">4</td>
+      
+      
+    </tr>
+    </#if>
+	 <tr align="center">
+      <td>${groupMarks.teaName!}</td>
+      <td>${groupMarks.score!}</td>
+      
+     
+      </tr>
+    </#list>
+    <tr align="center">
+      <td>指导教师成绩</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+      </tr>
+  </tbody>
+</table>
+	
+ 	<ul class="main_cont_ul">
+      <li class="ul_titlec"><span class="floatright">统计人签名：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+                
+    </ul>   
+    
+    
+    
+</div>
+</body>
+</html>

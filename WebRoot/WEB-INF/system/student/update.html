@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MyHtml.html</title>
+
+<meta name="keywords" content="keyword1,keyword2,keyword3">
+<meta name="description" content="this is my page">
+<meta name="content-type" content="text/html; charset=UTF-8">
+<link href="${base}/resource/hsr/acedown/assets/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/font-awesome.min.css" />
+<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace.min.css" />
+<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace-rtl.min.css" />
+<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace-skins.min.css" />
+<script src="${base}/resource/hsr/assets/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="${base!}/resource/js/ajaxfileupload.js"></script>
+ <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
+
+
+ <script type="text/javascript">
+    function delcfm() {
+    	var a=document.getElementById("teaId");
+    	var b=document.getElementById("groupId");
+    	if(a.value!=null && a.value!=""){
+    		var msg = $.ajax({  
+       	     type: "post",  
+       	     url: "${base}/judgment/group.do?teaId="+a.value,
+       	     async:false,
+       	 }).responseText;  
+       	if(b.value!="" && b.value!=null){
+       		if(b.value==msg){
+       			a.selectedIndex ="";
+       			alert("该指导老师在该答辩组,不能选择");
+       		}
+       	}
+    }
+    }
+</script>
+
+ <script type="text/javascript">
+    function cfm() {
+    	var a=document.getElementById("teaId");
+    	var b=document.getElementById("groupId");
+    	if(a.value!=null && a.value!=""){
+    		var msg = $.ajax({  
+       	     type: "post",  
+       	     url: "${base}/judgment/group.do?teaId="+a.value,
+       	     async:false,
+       	 }).responseText;  
+       	if(b.value!="" && b.value!=null){
+       		if(b.value==msg){
+       			b.selectedIndex ="";
+       			alert("该指导老师在该答辩组,不能选择");
+       		}
+       	}
+    }
+    }
+</script>
+</head>
+
+<body style='width:99%;'>
+	<div class="page-content">
+		<div class="page-header">
+			<h1>
+				学生管理 <i class="icon-double-angle-right"></i> <small> 学生信息修改 </small>
+			</h1>
+		</div>
+		<!-- /.page-header -->
+		<div class="row">
+			<div class="col-xs-12">
+				<form class="form-horizontal" id="bankType" action="${base!}/student/update.do?<#if stuIdNow ??>&&stuIdNow=${stuIdNow!}</#if><#if stuNameNow ??>&&stuNameNow=${stuNameNow!}</#if><#if groupIdNow ??>&&groupIdNow=${groupIdNow!}</#if><#if teaIdNow ??>&&teaIdNow=${teaIdNow!}</#if><#if pageNo ??>&&pageNo=${pageNo!}<#else> &&pageNo=1</#if>" method="post" role="form" name="form1" >
+
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1" >用户名</label>
+						<div class="col-sm-9">
+							<input type="text" name="stuId"  readonly="readonly" class="col-xs-10 col-sm-5"  value="${student.stuId!}"/> <span id="namePrompt">*</span>
+						</div>
+					</div>
+
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1">姓名</label>
+						<div class="col-sm-9">
+							<input type="text" name="stuName" class="col-xs-10 col-sm-5"  value="${student.stuName!}" /> <span id="namePrompt">*</span>
+						</div>
+					</div>
+					
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1">指导教师</label>
+						<div class="col-sm-9">
+							<select name="teaId" style="width:342px" onChange="delcfm()" id="teaId">
+			           <option value=''>无</option>
+			           <#if teachers ??>
+			           <#list teachers as teachers>
+			           <option value="${teachers.teaId}"  <#if student.teaId ?? && student.teaId=teachers.teaId>selected="selected"</#if>>${teachers.teaName}</option>
+			           </#list>
+			           </#if>
+			           </select>
+						</div>
+					</div>
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1">所在答辩组</label>
+						<div class="col-sm-9">
+							<select name="groupId"  style="width:342px" id="groupId" onChange="cfm()">
+		        	   <option value="">未分配</option>
+		        	   <#if groupInfos ??>
+		        	   <#list groupInfos as groupInfos>
+		        	      <option value='${groupInfos.groId}'  <#if student.groupId ?? && student.groupId==groupInfos.groId>selected="selected"</#if>>${groupInfos.groId!}</option>
+		        	      </#list>
+		        	   </#if>
+		        	 </select>
+						</div>
+					</div>
+					<div class="space-4"></div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1">论文编号</label>
+						<div class="col-sm-9">
+							<input type="text" name="speechId" class="col-xs-10 col-sm-5" readonly="readonly"  value="${student.speechId!}"  /> <span id="namePrompt"></span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label no-padding-right" for="form-field-1">所在答辩组</label>
+						<div class="col-sm-9">
+							<select name="classNo"  style="width:342px" id="classNo" >
+		        	   <option value="">未分配</option>
+		        	   <#if classes ??>
+		        	   <#list classes as classes>
+		        	      <option value='${classes.classNo}'  <#if student.classNo ?? && student.classNo==classes.classNo>selected="selected"</#if>>${classes.className!}</option>
+		        	      </#list>
+		        	   </#if>
+		        	 </select>
+						</div>
+					</div>
+					
+					<div class="text" style=" text-align:center;">*号为必填项
+					</div>
+					<div class="space-4"></div>
+					<div>
+						<div class="space-4"></div>
+						<div class="col-md-offset-3 col-md-9">
+							<button class="btn btn-info" id="forSubmit" type="button" onclick="addApply()">
+								<i class="icon-ok bigger-110"></i> 修改
+							</button>
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset">
+								<i class="icon-undo bigger-110"></i> 重置
+							</button>
+						</div>
+					</div>
+
+				</form>
+				
+				<script type="text/javascript">
+				$(function(){
+					var $password = $('#password'), 
+						$passwordInput = $('<input type="text"  name="password"  class="col-xs-10 col-sm-5"       "'  + '" />');
+					$('#show_password').click(function(){
+						if(this.checked){
+							$password.replaceWith($passwordInput.val($password.val()));
+						}else{
+							$passwordInput.replaceWith($password.val($passwordInput.val()));
+						}
+					});
+				}); 
+
+				</script>
+				
+				<script type="text/javascript">
+					function addApply(){
+       			var form = document.getElementById("bankType");
+       		 if(form1.stuId.value==""){
+       			 alert("用户名不能为空");
+       			return false;
+       		  }
+       		if(form1.stuName.value==""){
+      			 alert("姓名不能为空");
+      			return false;
+      		  }
+       				form.submit();
+       		}
+					</script>
+				
+				
+				<script type="text/javascript">
+				  $("#uploadImage").click(function(){
+		           		uploadimg();
+		           })
+		           function uploadimg(){
+	            	   $.ajaxFileUpload({
+	            	        url: '${base!}/common/uploadImg.do',
+	            	        secureuri: false,
+	            	        fileElementId: 'uploadFile',
+	            	        dataType: 'json',
+	            	        contentType:'text/json',
+	            	        success: function(data,status){
+	            	       		$("#imgPrivew").attr("src",data.serverpath); 
+	            	       		$("#headImg").val(data.serverpath); 
+	            	        	alert("上传成功！");
+	            	        },
+	            	        error: function (data, status, e){
+	            	            alert(e);
+	            	        }
+	            	    });
+					}
+	               
+					function add() {
+						var form = document.getElementById("bankType")
+						form.submit();
+					}
+				</script>
+
+
+			</div>
+			<!-- /.col -->
+		</div>
+		<!-- /.row -->
+	</div>
+	<!-- /.page-content -->
+</body>
+</html>

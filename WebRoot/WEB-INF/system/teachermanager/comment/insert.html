@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>微信配餐平台 管理中心</title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace.min.css" />
+<link rel="stylesheet" href="${base}/resource/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="${base}/resource/kindeditor/plugins/code/prettify_1.css" />
+<script charset="utf-8" src="${base}/resource/kindeditor/kindeditor_1.js"></script>
+<script charset="utf-8" src="${base}/resource/kindeditor/lang/zh_CN.js"></script>
+<script charset="utf-8" src="${base}/resource/kindeditor/plugins/code/prettify.js"></script>
+<script src="${base}/resource/hsr/assets/js/jquery-1.8.2.min.js"></script>
+</head>
+<body>
+<div class="page-header">
+				<h1>
+					<i class="icon-search"></i>答辩操作-评语操作	 &nbsp; 			
+				</h1>
+		</div>
+		<!-- tab body -->
+		<div id="tabbody-div">
+			<form action="${base!}/groComment/insert.do?<#if student.stuId ??>stuId=${student.stuId!}</#if>" method="post" name="zdhf" id="zdhf">
+				<!-- 通用信息 -->
+				<table width="100%" id="general-table" align="center">
+					<tr>
+						<td class="label">评语内容：</td>
+						<td><textarea id="contents" name="groCom" cols="100" rows="8" style="width:700px;height:200px;visibility:hidden;"></textarea></td>
+					</tr>
+				</table>
+
+				<div class="button-div">
+					<button class="btn btn-info" id="forSubmit" type="submit" >
+								<i class="icon-ok bigger-110"></i> 提交
+							</button>
+							&nbsp; &nbsp; &nbsp;
+							<button class="btn" type="reset">
+								<i class="icon-undo bigger-110"></i> 重置
+							</button>
+				</div>
+			</form>
+		</div>
+	<!-- end goods form -->
+
+
+
+	<script>
+		function  saveSet(){
+			var editorText = $('.ke-edit-iframe').contents().find("body")
+			var contents = editorText.html();
+			if("<br>"==contents){
+				alert("请填写关注回复内容!");
+				return false;
+			}
+			$("#contents").val(contents);
+			$.ajax({
+                type: "post",
+                url: "${base!}/fancy_wechat/sOrUgzZdhf.do",     
+                data: $("#contents").serialize(),    
+                success: function(data) {
+                    alert("修改成功！");
+                },
+                error: function(data) {
+                    alert(data);
+                }
+            })
+		}
+		KindEditor.ready(function(K) {
+			var editor1 = K.create('textarea[name="groCom"]', {
+				cssPath : '${base!}/resource/kindeditor/plugins/code/prettify.css',
+				uploadJson : '${base!}/resource/kindeditor/jsp/upload_json.jsp',
+				fileManagerJson : '${base!}/resource/kindeditor/jsp/file_manager_json.jsp',
+				filterMode: false,
+				items : [
+				 		'source', '|', 'undo', 'redo', '|', 'preview',  'template',  'cut', 'copy', 'paste',
+				 		'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+				 		'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+				 		'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', 
+				 		'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+				 		'italic', 'underline', 'strikethrough', 'lineheight', '/','removeformat', '|', 'image', 'multiimage',
+				 		'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'pagebreak',
+				 		'anchor', 'link', 'unlink'
+				 	],
+				
+				allowFileManager : true,
+				afterCreate : function() {
+					var self = this;
+					K.ctrl(document, 13, function() {
+						self.sync();
+						document.forms['example'].submit();
+					});
+					K.ctrl(self.edit.doc, 13, function() {
+						self.sync();
+						document.forms['zdhf'].submit();
+					});
+				}
+			});
+			prettyPrint();
+		});
+	</script>
+
+</body>
+
+</html>

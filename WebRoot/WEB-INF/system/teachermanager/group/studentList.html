@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyHtml.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+  		<link href="${base}/resource/hsr/acedown/assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="${base}/resource/hsr/acedown/assets/css/ace-skins.min.css" />
+		
+		<!--  jquery -->
+		<link rel="stylesheet" href="${base}/resource/css/reset1.css" />
+<link rel="stylesheet" href="${base}/resource/css/pagination.css" />
+
+
+<script type="text/javascript" src="${base}/resource/js/lib/jquery.min.js"></script>
+<script type="text/javascript" src="${base}/resource/js/jquery.pagination.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+	$("#Pagination").pagination("15");
+});
+</script>
+
+ <script type="text/javascript">
+    function delcfm() {
+        if (!confirm("确认要移出？")) {
+            window.event.returnValue = false;
+        }
+    }
+</script>
+
+
+  </head>
+  
+  <body style='width:99%;'>
+		<div class="page-content">
+		<div class="page-header">
+				<h1>
+					<i class="icon-search"></i>小组信息-学生信息	 &nbsp; 			
+				</h1>
+		</div>
+		<div class="row">
+			<div class="row">
+       		  <script type="text/javascript">
+       		  
+       		function addApply(){
+       			var form = document.getElementById("queryFood");
+       				form.submit();
+       		}
+              </script>
+				<div class="page-header">
+				<h2>
+					 &nbsp;&nbsp;&nbsp;&nbsp;所在答辩组：&nbsp; 	<#if groupId ??>${groupId!}<#else>未分配</#if>		 
+				</h2>
+		</div>
+				<div class="col-xs-12">
+						<div class="table-responsive">
+							<table id="sample-table-2" class="table table-striped table-bordered table-hover">
+								<thead>
+									<tr>
+										<th class="center">用户名</th>
+										<th class="center">姓名</th>
+										<th class="center">所在班级</th>
+										<th class="center">论文题目</th>
+										<#if type??>
+                       					<#if type=1>
+										<th  class="center">移出答辩组</th>
+										</#if>
+                                    </#if>
+									</tr>
+								</thead>
+								<tbody>
+                         <#if students ??>
+                    <#list students as students>
+                    <tr>
+                        <td class="center">${students.stuId!}</td>
+                        <td class="center">${students.stuName!}</td>
+                        <td class="center">${students.className!}</td>
+                        <td class="center">${students.speechTitle!}</td>
+                        <#if type??>
+                       <#if type=1>
+                        <td  class="center">
+                        <a href="${base}/teachergroup/studentDel.do?<#if students ??>stuId=${students.stuId!}</#if>" onClick="delcfm()">移出</a>
+                        </td>
+                        </#if>
+                        </#if>
+                    </tr>
+                    </#list>
+                    </#if>
+                    </tbody>
+                    </table>
+		          </div>
+		   </div>
+		   </div>
+       </div>
+  </div>
+  </body>
+</html>

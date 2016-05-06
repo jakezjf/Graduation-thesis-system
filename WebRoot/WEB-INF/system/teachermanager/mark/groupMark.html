@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet"  href="${base!}/resource/teacher/hhellow.css"/>
+<link href="${base}/resource/hsr/acedown/assets/css/bootstrap.min.css" rel="stylesheet" />
+<title>小组用表</title>
+
+
+
+</head>
+
+<body>
+<script type="text/javascript">  
+function sum(){  
+        var groA = document.getElementById("a");// 获得ID为aa标签的jQuery对象  
+        var groB = document.getElementById("b");
+        var groC = document.getElementById("c");
+        var groD = document.getElementById("d");
+        var groE = document.getElementById("e");
+        var groF = document.getElementById("f");
+        var groG = document.getElementById("g");
+        var grosum =document.getElementById("score");
+        var sum = parseInt(groA.value) +  parseInt(groB.value) + parseInt(groC.value) + parseInt(groD.value) + parseInt(groE.value) + parseInt(groF.value) + parseInt(groG.value);
+        alert(sum);
+        grosum.value=sum;  
+    }
+</script>  
+<form action="${base}/teachergroup/update.do?<#if student ??>stuId=${student.stuId!}</#if>" method="post" >
+<div class="kuang1">
+	<div class="nihao">
+		<div class="kuang2">
+        		<div class="kuang2_left">
+                		<div class="title">报告情况
+                        </div>
+                        <div class="neir">思路清晰，语言表达准确；
+        								基础理论，专业知识坚实。
+                        </div>
+                </div>
+                <div class="kuang2_right">
+                		<select class="select" id ="aa" name="aa" size="1" onChange="redirect1(this.options.selectedIndex)">
+  						<option value='A' <#if groupMark.groA ?? && (groupMark.groA>17) >selected='selected'</#if>>A  </option>
+						<option value='B'  <#if groupMark.groA ?? && (groupMark.groA<18) && (groupMark.groA>14)>selected='selected'</#if>>B   </option>
+						<option value='C' <#if groupMark.groA ?? && (groupMark.groA<15) && (groupMark.groA>11) >selected='selected'</#if>>C  </option>
+						<option value='D'   <#if groupMark.groA ?? && (groupMark.groA<12) && (groupMark.groA>8) >selected='selected'</#if>>D   </option>
+						<option value='E'  <#if groupMark.groA ?? && (groupMark.groA<9) >selected='selected'</#if>>E  </option>
+						</select><br>
+                       <select class="select" name="groA" id="a" size="1" onchange="sum()">
+                       <#if groupMark.groA ?? >
+                       <option value="${groupMark.groA}">${groupMark.groA}</option>
+                       <#else>
+						<option value="20">20</option>
+						<option value="19">19</option>
+						<option value="18">18</option>
+						</#if>
+						</select>
+							<script type="text/javascript">
+
+  
+	var groups=document.getElementById("aa").options.length
+	var group=new Array(groups)
+
+  var group20=new Array(groups)
+  for (i=0; i<groups; i++)
+  group20[i]=new Array()
+  group20[0][0]=new Option("20","20")
+  group20[0][1]=new Option("19","19")
+  group20[0][2]=new Option("18","18")
+  group20[1][0]=new Option("17","17")
+  group20[1][1]=new Option("16","16")
+  group20[1][2]=new Option("15","15")
+  group20[2][0]=new Option("14","14")
+  group20[2][1]=new Option("13","13")
+  group20[2][2]=new Option("12","12")
+  group20[3][0]=new Option("11","11")
+  group20[3][1]=new Option("10","10")
+  group20[3][3]=new Option("9","9")
+  group20[4][0]=new Option("8","8")
+  group20[4][1]=new Option("7","7")
+  group20[4][2]=new Option("6","6")
+  group20[4][3]=new Option("5","5")
+  group20[4][4]=new Option("4","4")
+  group20[4][5]=new Option("3","3")
+  group20[4][6]=new Option("2","2")
+  group20[4][7]=new Option("1","1")
+  group20[4][8]=new Option("0","0")
+	
+	
+	for (i=0; i<groups; i++)
+		  group[i]=new Array()
+		  group[0][0]=new Option("10","10")
+		  group[1][0]=new Option("9","9")
+		  group[2][0]=new Option("8","8")
+		  group[3][0]=new Option("7","7")
+		  group[4][0]=new Option("6","6")
+		  group[4][1]=new Option("5","5")
+		  group[4][2]=new Option("4","4")
+		  group[4][3]=new Option("3","3")
+		  group[4][4]=new Option("2","2")
+		  group[4][5]=new Option("1","1")
+		  group[4][6]=new Option("0","0")
+
+var temp=document.getElementById("a")
+function redirect1(x){
+  for (m=temp.options.length-1;m>0;m--)
+  temp.options[m]=null
+  for (i=0;i<group20[x].length;i++){
+  temp.options[i]=new Option(group20[x][i].text,group20[x][i].value)
+  }
+  sum();
+  temp.options[0].selected=true
+  }
+
+
+  </script>	
+				
+                </div>
+        </div>
+        <div class="kuang2">
+        		<div class="kuang2_left">
+                		<div class="title">研究方法
+                        </div>
+                        <div class="neir">采用新的方法、技术或对所用技术做了改进。基础理论，专业知识坚实。
+                        </div>
+                </div>
+                <div class="kuang2_right">
+                		<select class="select" id ="bb" name="bb" size="1" onChange="redirect2(this.options.selectedIndex)">
+  						<option value='A' <#if groupMark.groB?? && groupMark.groB=10 >selected='selected'</#if>>A  </option>
+						<option value='B'  <#if groupMark.groB?? && (groupMark.groB=9) >selected='selected'</#if>>B   </option>
+						<option value='C' <#if groupMark.groB?? && (groupMark.groB=8) >selected='selected'</#if>>C  </option>
+						<option value='D'   <#if groupMark.groB?? && (groupMark.groB=7) >selected='selected'</#if>>D   </option>
+						<option value='E'  <#if groupMark.groB?? && (groupMark.groB<7) >selected='selected'</#if>>E  </option>
+						</select><br>
+                       <select class="select" name="groB" id="b" size="1" onchange="sum()">
+                       <#if groupMark.groB ?? ><option value="${groupMark.groB}">${groupMark.groB}</option><#else>
+						<option value="10">10</option>
+						</#if>
+						</select>
+							<script type="text/javascript">
+
+  
+ 
+var tempb=document.getElementById("b")
+function redirect2(x){
+  for (m=tempb.options.length-1;m>0;m--)
+  tempb.options[m]=null
+  for (i=0;i<group[x].length;i++){
+  tempb.options[i]=new Option(group[x][i].text,group[x][i].value)
+  }
+  sum();
+  tempb.options[0].selected=true
+  }
+
+
+  </script>	
+				
+					
+
+
+
+                </div>
+        </div>
+        <div class="kuang2">
+        		<div class="kuang2_left">
+                		<div class="title">分析和解决问题能力
+                        </div>
+                        <div class="neir">表现出对实际问题有较强的分析能力和解决能力。
+                        </div>
+                </div>
+                <div class="kuang2_right">
+                		<select class="select" id ="cc" name="cc" size="1" onChange="redirect3(this.options.selectedIndex)">
+  						<option value='A' <#if groupMark.groC?? && groupMark.groC=10 >selected='selected'</#if>>A  </option>
+						<option value='B'  <#if groupMark.groC?? && (groupMark.groC=9) >selected='selected'</#if>>B   </option>
+						<option value='C' <#if groupMark.groC?? && (groupMark.groC=8) >selected='selected'</#if>>C  </option>
+						<option value='D'   <#if groupMark.groC?? && (groupMark.groC=7) >selected='selected'</#if>>D   </option>
+						<option value='E'  <#if groupMark.groC?? && (groupMark.groC<7) >selected='selected'</#if>>E  </option>
+						</select><br>
+                       <select class="select" name="groC" id="c" size="1" onchange="sum()" >
+                       <#if groupMark.groC ?? ><option value="${groupMark.groC}">${groupMark.groC}</option><#else>
+						<option value="10">10</option>
+						</#if>
+						</select>
+							<script type="text/javascript">
+
+  
+
+var tempc=document.getElementById("c")
+function redirect3(x){
+  for (m=tempc.options.length-1;m>0;m--)
+  tempc.options[m]=null
+  for (i=0;i<group[x].length;i++){
+  tempc.options[i]=new Option(group[x][i].text,group[x][i].value)
+  }
+  sum();
+  tempc.options[0].selected=true
+  }
+
+
+  </script>	
+				
+					
+
+
+
+                </div>
+        </div>
+        <div class="kuang2">
+        		<div class="kuang2_left">
+                		<div class="title">论文(设计)结果
+                        </div>
+                        <div class="neir">论文(设计)结果达到或超出预期结果；
+论文(设计)结果有应用价值；
+                        </div>
+                </div>
+                <div class="kuang2_right">
+                		<select class="select" id ="dd" name="dd" size="1" onChange="redirect4(this.options.selectedIndex)">
+  						<option value='A' <#if groupMark.groD?? && groupMark.groD=10 >selected='selected'</#if>>A  </option>
+						<option value='B'  <#if groupMark.groD?? && (groupMark.groD=9) >selected='selected'</#if>>B   </option>
+						<option value='C' <#if groupMark.groD?? && (groupMark.groD=8) >selected='selected'</#if>>C  </option>
+						<option value='D'   <#if groupMark.groD?? && (groupMark.groD=7) >selected='selected'</#if>>D   </option>
+						<option value='E'  <#if groupMark.groD?? && (groupMark.groD<7) >selected='selected'</#if>>E  </option>
+						</select><br>
+                       <select class="select" name="groD" id="d" size="1" onchange="sum()">
+                       <#if groupMark.groD ?? ><option value="${groupMark.groD}">${groupMark.groD}</option><#else>
+                       <option value="10">10</option>
+                       </#if>
+						</select>
+							<script type="text/javascript">
+
+  
+  
+var tempd=document.getElementById("d")
+function redirect4(x){
+  for (m=tempd.options.length-1;m>0;m--)
+  temd.options[m]=null
+  for (i=0;i<group[x].length;i++){
+  tempd.options[i]=new Option(group[x][i].text,group[x][i].value)
+  }
+  sum();
+  tempd.options[0].selected=true
+  }
+
+
+  </script>	
+				
+					
+
+
+
+                </div>
+        </div>
+        <div class="kuang2">
+        		<div class="kuang2_left">
+                		<div class="title">撰写质量
+                        </div>
+                        <div class="neir">论文(设计)写作格式规范，论文中的图表、设计中的图纸在书写和制作上规范，能够执行国家有关标准；
+文字通顺，技术用语准确。
+                        </div>
+                </div>
+                <div class="kuang2_right">
+                		<select class="select" id ="ee" name="ee" size="1" onChange="redirect5(this.options.selectedIndex)">
+  						<option value='A' <#if groupMark.groE?? && (groupMark.groE>17) >selected='selected'</#if>>A  </option>
+						<option value='B'  <#if groupMark.groE?? && (groupMark.groE<18) && (groupMark.groE>14)>selected='selected'</#if>>B   </option>
+						<option value='C' <#if groupMark.groE?? && (groupMark.groE<15) && (groupMark.groE>11) >selected='selected'</#if>>C  </option>
+						<option value='D'   <#if groupMark.groE?? && (groupMark.groE<12) && (groupMark.groE>8) >selected='selected'</#if>>D   </option>
+						<option value='E'  <#if groupMark.groE?? && (groupMark.groE<9) >selected='selected'</#if>>E  </option>
+						</select><br>
+                       <select class="select" name="groE" id="e" size="1" onchange="sum()">
+						<#if groupMark.groE ?? >
+                       <option value="${groupMark.groE}">${groupMark.groE}</option>
+                       <#else>
+						<option value="20">20</option>
+						<option value="19">19</option>
+						<option value="18">18</option>
+						</#if>
+						</select>
+							<script type="text/javascript">
+
+  
+  
+var tempe=document.getElementById("e")
+function redirect5(x){
+  for (m=tempe.options.length-1;m>0;m--)
+  tempe.options[m]=null
+  for (i=0;i<group20[x].length;i++){
+  tempe.options[i]=new Option(group20[x][i].text,group20[x][i].value)
+  }
+  sum();
+  tempe.options[0].selected=true
+  }
+
+
+  </script>	
+				
+					
+
+
+
+                </div>
+        </div>
+        <div class="kuang2">
+        		<div class="kuang2_left">
+                		<div class="title">答辩
+                        </div>
+                        <div class="neir">回答问题有理论根据，基本概念清楚，主要问题回答准确、有深度。
+                        </div>
+                </div>
+                <div class="kuang2_right">
+                		<select class="select" id ="ff" name="ff" size="1" onChange="redirect6(this.options.selectedIndex)">
+  						<option value='A' <#if groupMark.groF?? && (groupMark.groF>17) >selected='selected'</#if>>A  </option>
+						<option value='B'  <#if groupMark.groF?? && (groupMark.groF<18) && (groupMark.groF>14)>selected='selected'</#if>>B   </option>
+						<option value='C' <#if groupMark.groF?? && (groupMark.groF<15) && (groupMark.groF>11) >selected='selected'</#if>>C  </option>
+						<option value='D'   <#if groupMark.groF?? && (groupMark.groF<12) && (groupMark.groF>8) >selected='selected'</#if>>D   </option>
+						<option value='E'  <#if groupMark.groF?? && (groupMark.groF<9) >selected='selected'</#if>>E  </option>
+						</select><br>
+                       <select class="select" name="groF" id="f" size="1" onchange="sum()">
+						<#if groupMark.groF ?? >
+                       <option value="${groupMark.groF}">${groupMark.groF}</option>
+                       <#else>
+						<option value="20">20</option>
+						<option value="19">19</option>
+						<option value="18">18</option>
+						</#if>
+						</select>
+							<script type="text/javascript">
+
+  
+  
+var tempf=document.getElementById("f")
+function redirect6(x){
+  for (m=tempf.options.length-1;m>0;m--)
+  tempf.options[m]=null
+  for (i=0;i<group20[x].length;i++){
+  tempf.options[i]=new Option(group20[x][i].text,group20[x][i].value)
+  }
+  sum();
+  tempf.options[0].selected=true
+  }
+
+
+  </script>	
+				
+					
+
+
+
+                </div>
+        </div>
+        <div class="kuang2">
+        		<div class="kuang2_left">
+                		<div class="title">创新
+                        </div>
+                        <div class="neir">对前人工作有改进或突破，有独特见解。
+                        </div>
+                </div>
+              <div class="kuang2_right">
+                		<select class="select" id ="gg" name="gg" size="1" onChange="redirect7(this.options.selectedIndex)">
+  						<option value='A' <#if groupMark.groG?? && groupMark.groG=10 >selected='selected'</#if>>A  </option>
+						<option value='B'  <#if groupMark.groG?? && (groupMark.groG=9) >selected='selected'</#if>>B   </option>
+						<option value='C' <#if groupMark.groG?? && (groupMark.groG=8) >selected='selected'</#if>>C  </option>
+						<option value='D'   <#if groupMark.groG?? && (groupMark.groG=7) >selected='selected'</#if>>D   </option>
+						<option value='E'  <#if groupMark.groG?? && (groupMark.groG<7) >selected='selected'</#if>>E  </option>
+						</select><br>
+                       <select class="select" name="groG" id="g" size="1" onchange="sum()">
+						<#if groupMark.groG ?? ><option value="${groupMark.groG}">${groupMark.groG}</option><#else>
+						<option value="10">10</option>
+						</#if>
+						</select>
+						
+						
+							<script type="text/javascript">
+
+  
+ 
+var tempg=document.getElementById("g")
+function redirect7(x){
+  for (m=tempb.options.length-1;m>0;m--)
+  tempg.options[m]=null
+  for (i=0;i<group[x].length;i++){
+  tempg.options[i]=new Option(group[x][i].text,group[x][i].value)
+  }
+  sum();
+  tempg.options[0].selected=true
+  }
+
+
+  </script>	
+                </div>
+               
+        </div>
+	
+</div>
+</div>
+   姓名:&nbsp;&nbsp;<input type="text"  readonly="readonly"  size="16" name="stuName" value="<#if student ??>${student.stuName!}</#if>" /> &nbsp;&nbsp;&nbsp;&nbsp; 总分：&nbsp;&nbsp; <input type="text" id="score" />
+   &nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-info" id="forSubmit" type="submit" ><!-- onclick="" -->
+								<i class="icon-ok bigger-110"></i> 提交
+							</button><br><br>
+</form>
+
+</body>
+</html>

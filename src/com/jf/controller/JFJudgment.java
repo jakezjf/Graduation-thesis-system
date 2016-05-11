@@ -38,6 +38,7 @@ public class JFJudgment {
 		JFTeacher teacher = teacherService.getTeacher(teaId);
 		try {
 			response.getWriter().print(teacher.getGroId());
+			//判断是否存在老师
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -372,7 +372,32 @@ public class TPrinterController {
 	
 	
 	
-	
+	@RequestMapping()
+	public String listScore(HttpServletRequest request, ModelMap model, HttpServletResponse response){
+		session = request.getSession();
+		if (session.getAttribute("id")!=null ) {
+			JFTeacher teacher = new JFTeacher();
+			teacher = teacherService.getTeacher((String)session.getAttribute("id"));
+			if (teacher!=null && teacher.getGroId()!=null && teacher.getGroId().equals("")==false) {
+				JFStudent student = new JFStudent();
+				student.setGroupId(teacher.getGroId());
+				List<JFStudent> students = studentService.getStudentList(student);
+				if (students.size()>0) {
+					for (int i = 0; i < students.size(); i++) {
+						if (students.get(i).getClassNo()!=0) {
+							students.get(i).setClassName(classService.getClassName(students.get(i).getClassNo()));
+						}
+						JFGroupMark groupMark = new JFGroupMark();
+						groupMark.setStuId("");
+						List<JFGroupMark> groupMarks = groupMarkService.groupMarks(groupMark);
+						
+					}
+					
+				}
+			}
+		}
+		return "redirect:toScore.do+pageNo=1";
+	}
 	
 	
 	

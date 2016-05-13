@@ -19,7 +19,7 @@
 		<!-- 配置默认的执行器 -->
 		<setting name="defaultExecutorType" value="SIMPLE" />
 		<!-- 设置超时时间 -->
-		<setting name="defaultStatementTimeout" value="25000" />
+		<setting name="defaultStatementTimeout" value="35000" />
 	</settings>
 	<typeAliases>
 	<typeAlias alias="JFPercent" type="com.jf.model.JFPercent" />

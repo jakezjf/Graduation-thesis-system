@@ -40,8 +40,7 @@ public class JFSpeechServiceImpl implements JFSpeechService {
 	 */
 	@Override
 	public void update(JFSpeech speech) {
-		// TODO Auto-generated method stub
-		
+		speechMapper.updateByPrimaryKeySelective(speech);
 	}
 
 	/* (non-Javadoc)
@@ -49,8 +48,7 @@ public class JFSpeechServiceImpl implements JFSpeechService {
 	 */
 	@Override
 	public void insert(JFSpeech speech) {
-		// TODO Auto-generated method stub
-		
+		speechMapper.insertSelective(speech);
 	}
 
 	/* (non-Javadoc)

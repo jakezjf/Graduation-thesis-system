@@ -36,5 +36,6 @@ public interface JFTeacherService {
 	
 	List<JFTeacher> getTeacherList(String groId);
 	
+	JFTeacher teacher(JFTeacher teacher);
 	
 }

@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.jf.common.session.SessionProvider;
 import com.jf.common.page.Pagination;
 import com.jf.util.Constants;
+import com.jf.model.JFSpeech;
 import com.jf.model.JFStudent;
 import com.jf.model.JFTeacher;
 import com.jf.model.JFUser;
+import com.jf.service.JFSpeechService;
 import com.jf.service.JFStudentService;
 import com.jf.service.JFTeacherService;
 import com.jf.service.JFUserService;
@@ -54,6 +56,9 @@ public class JFUserController {
 	@Autowired
 	private ImageCaptchaService captchaService;
 	
+	@Autowired
+	private JFSpeechService speechService;
+	
 	@RequestMapping("/login.do")
 	public String login(HttpServletRequest request, ModelMap model, HttpServletResponse response) {
 		session = request.getSession();
@@ -75,12 +80,14 @@ public class JFUserController {
 					return "login/index";
 				}
 			}
-			int ty = (Integer) session.getAttribute("ty");
-			if (session.getAttribute("id") !=null && ty==3 ) {
-				String a = (String) session.getAttribute("id");
-				JFUser user =  userService.getUser(a);
-				model.addAttribute("idd", user.getName());
-				return "login/index";
+			if(session.getAttribute("ty")!=null){
+				int ty = (Integer) session.getAttribute("ty");
+				if (session.getAttribute("id") !=null && ty==3 ) {
+					String a = (String) session.getAttribute("id");
+					JFUser user =  userService.getUser(a);
+					model.addAttribute("idd", user.getName());
+					return "login/index";
+				}
 			}
 		} catch (Exception e) {
 			return "login/login";
@@ -96,6 +103,8 @@ public class JFUserController {
 		try {
 			if (captcha!=null) {
 				if (!this.captchaService.validateResponseForID(this.sessionProvider.getSessionId(request, response), captcha)) {
+					String error = "验证码错误";
+					model.addAttribute("error", error);
 					return "login/login";
 				}
 			}
@@ -139,9 +148,13 @@ public class JFUserController {
 						}
 					}
 				} catch (Exception e) {
+					String error = "用户名或密码错误";
+					model.addAttribute("error", error);
 					return "login/login";
 				}
 			}
+			String error = "用户名或密码错误";
+			model.addAttribute("error", error);
 			return "login/login";
 		}
 	
@@ -186,10 +199,9 @@ public class JFUserController {
 	}
 	
 	@RequestMapping("/update.do")
-	public String update(HttpServletRequest request, ModelMap model, HttpServletResponse response,JFUser user,Integer pageNo){
+	public String update(HttpServletRequest request, ModelMap model, HttpServletResponse response,JFUser user,Integer pageNo,JFStudent student){
 			if(user.getType()==1){
 				synchronized (this) {
-					JFStudent student = new JFStudent();
 					student.setStuId(user.getId());
 					student.setStuName(user.getPassword());
 					studentService.update(student);
@@ -215,14 +227,20 @@ public class JFUserController {
 	}
 	
 	@RequestMapping("/add.do")
-	public String inset(HttpServletRequest request, ModelMap model, HttpServletResponse response,JFUser user){
+	public String inset(HttpServletRequest request, ModelMap model, HttpServletResponse response,JFUser user,JFStudent student){
 		try {
 			userService.insert(user);
 			if (user.getType()==1) {
-				JFStudent student = new JFStudent();
 				student.setStuId(user.getId());
 				student.setStuName(user.getName());
 				studentService.insert(student);
+				if (student.getSpeechId()!=null && student.getSpeechId().equals("")==false && student.getSpeechTitle()!=null && student.getSpeechTitle().equals("")==false) {
+					JFSpeech speech = new JFSpeech();
+					speech.setSpeechId(student.getSpeechId());
+					speech.setSpeechTitle(student.getSpeechTitle());
+					speech.setStuId(student.getStuId());
+					speechService.insert(speech);
+				}
 				return "redirect:../student/pagelist.do?pageNo=1";
 			}
 			if(user.getType()==2){

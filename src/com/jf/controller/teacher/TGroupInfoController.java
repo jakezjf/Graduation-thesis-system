@@ -101,7 +101,9 @@ public class TGroupInfoController {
 			if (students!=null) {
 				for (int i = 0; i < students.size(); i++) {
 					if (students.get(i).getSpeechId()!=null && students.get(i).getSpeechId().equals("")==false) {
-						students.get(i).setSpeechTitle(speechService.getSpeech(students.get(i).getSpeechId(), null, null, null, null).getSpeechTitle());
+						if (speechService.getSpeech(students.get(i).getSpeechId(), null, null, null, null).getSpeechTitle()!=null && speechService.getSpeech(students.get(i).getSpeechId(), null, null, null, null).getSpeechTitle().equals("") ==false) {
+							students.get(i).setSpeechTitle(speechService.getSpeech(students.get(i).getSpeechId(), null, null, null, null).getSpeechTitle());
+						}
 					}
 					if (students.get(i).getClassNo()!=0) {
 						students.get(i).setClassName(classService.getClassName(students.get(i).getClassNo()));

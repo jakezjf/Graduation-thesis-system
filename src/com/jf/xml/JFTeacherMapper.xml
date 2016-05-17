@@ -434,7 +434,26 @@
   </select>
     
     
-    
+      <select id="teacher"  resultMap="BaseResultMap"  parameterType="com.jf.model.JFTeacher" >
+   select  
+   <include refid="Base_Column_List" />
+    from teacher where 1=1
+     <if test="teaId != null  and teaId !='' " >
+        and tea_id = #{teaId,jdbcType=VARCHAR}
+      </if>
+      <if test="teaName != null and teaName !=''  " >
+        and tea_name = #{teaName,jdbcType=VARCHAR}
+      </if>
+      <if test="groId != null  and groId !='' "  >
+        and gro_id = #{groId,jdbcType=VARCHAR}
+      </if>
+      <if test="groType != null  "  >
+        and gro_type = #{groType,jdbcType=INTEGER}
+      </if>
+      <if test="speechCount != null  " >
+        and speech_count = #{speechCount,jdbcType=INTEGER}
+      </if>
+  </select>
     
     
 </mapper>

@@ -370,7 +370,12 @@ public class JFGroupMark extends JFGroupMarkKey {
 		this.student = student;
 	}
 
+	//jianfeng
 	private int score;
     
 	private JFStudent student;
+	
+
+	
+	
 }

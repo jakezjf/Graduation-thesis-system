@@ -400,6 +400,53 @@ public class TPrinterController {
 	}
 	
 	
+//跳到成绩统计表
+	@RequestMapping("toScore.do")
+	public String toScore(HttpServletRequest request, ModelMap model, HttpServletResponse response){
+		session = request.getSession();
+		JFPercent percent = new JFPercent();
+		percent = percentService.getPercent();
+		JFStudent student = new JFStudent();
+		JFTeacher teacher = new JFTeacher();
+		teacher = teacherService.getTeacher((String)session.getAttribute("id"));
+		if (teacher !=null && teacher.getGroId()!=null) {
+			student.setGroupId(teacher.getGroId());
+		}
+		List<JFStudent> students = studentService.getStudentList(student);
+		for (int i = 0; i < students.size(); i++) {
+			if (students.get(i).getSpeechId()!=null && students.get(i).getSpeechId().equals("")==false) {
+				students.get(i).setSpeechTitle(speechService.getSpeech(students.get(i).getSpeechId(), null, null, null, null).getSpeechTitle());
+				if (students.get(i).getClassNo()!=0) {
+					students.get(i).setClassName(classService.getClassName(students.get(i).getClassNo()));
+				}
+				JFGroupMark groupMark = new JFGroupMark();
+				groupMark.setStuId(students.get(i).getStuId());
+				double groScore =0;
+				List<JFGroupMark> groupMarks = groupMarkService.groupMarks(groupMark);
+				if (groupMarks.size()>0) {
+					for (int j = 0; j < groupMarks.size(); j++) {
+						groScore = groScore + groupMarks.get(j).getGroA() + groupMarks.get(j).getGroB() + groupMarks.get(j).getGroC() + groupMarks.get(j).getGroD() + groupMarks.get(j).getGroE() + groupMarks.get(j).getGroF() + groupMarks.get(j).getGroG();
+					}
+					groScore = groScore/groupMarks.size();
+				}
+				double teaScore =0;
+				double score =0;
+				JFTeacherMark teacherMark = new JFTeacherMark();
+				teacherMark.setStuId(students.get(i).getStuId());
+				teacherMark.setTeaId(students.get(i).getTeaId());
+				teacherMark = teacherMarkService.getTeacherMark(teacherMark);
+				if (teacherMark!=null) {
+					teaScore = teacherMark.getTeaA() + teacherMark.getTeaB() + teacherMark.getTeaC() + teacherMark.getTeaD() + teacherMark.getTeaE() + teacherMark.getTeaF() + teacherMark.getTeaG() + teacherMark.getTeaH();
+				}
+				score = teaScore*percent.getAdminPercent() + groScore * (1- percent.getAdminPercent());
+				//students.get(i).setScore((int)score);
+				students.get(i).setScore(Integer.parseInt(new java.text.DecimalFormat("0").format(score)));
+			}
+		}
+		model.addAttribute("students", students);
+		return "teachermanager/printer/toScore";
+	}
+	
 	
 	
 	/**

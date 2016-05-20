@@ -78,17 +78,71 @@ public class JFPrinterController {
 	}
 	
 	@RequestMapping("score.do")
-	public String score(HttpServletRequest request, ModelMap model, HttpServletResponse response){
-		List<JFStudent> students = studentService.getList();
+	public synchronized String score(Integer pageNo,JFStudent student,HttpServletRequest request, ModelMap model, HttpServletResponse response,String stuIdNow,String stuNameNow,String teaIdNow,String groupIdNow,String speechIdNow){
+		model.addAttribute("pageNo",pageNo);
+		JFPercent percent = new JFPercent();
+		percent = percentService.getPercent();
+		Pagination pagination = this.studentService.getPage(pageNo,Constants.PAGE_SIZE,stuIdNow,stuNameNow,teaIdNow,groupIdNow,speechIdNow,0);
+		model.addAttribute("pagination", pagination);
+		@SuppressWarnings("unchecked")
+		List<JFStudent> students = (List<JFStudent>) pagination.getList();
+		List<JFTeacher> teachers = teacherService.getList();
 		for (int i = 0; i < students.size(); i++) {
+			double groScore =0;
+			double teaScore = 0;
+			double score = 0;
+			students.get(i).setTeaName(teacherService.getTeacherName(students.get(i).getTeaId()));
 			if (students.get(i).getSpeechId()!=null && students.get(i).getSpeechId().equals("")==false) {
 				students.get(i).setSpeechTitle(speechService.getSpeech(students.get(i).getSpeechId(), null, null, null, null).getSpeechTitle());
 			}
-			if (students.get(i).getTeaId()!=null && students.get(i).getTeaId().equals("")==false) {
-				students.get(i).setTeaName(teacherService.getTeacherName(students.get(i).getTeaId()));
+			JFGroupMark groupMark = new JFGroupMark();
+			groupMark.setStuId(students.get(i).getStuId());
+			List<JFGroupMark> groupMarks = groupMarkService.groupMarks(groupMark);
+			if (groupMarks.size()>0 ) {
+				for (int j = 0; j < groupMarks.size(); j++) {
+					groScore = groScore + groupMarks.get(j).getGroA() + groupMarks.get(j).getGroB() + groupMarks.get(j).getGroC() + groupMarks.get(j).getGroD() + groupMarks.get(j).getGroE() + groupMarks.get(j).getGroF() + groupMarks.get(j).getGroG();
+				}
+				if (groScore>0) {
+					groScore = groScore / groupMarks.size();
+				}
 			}
+			JFTeacherMark teacherMark = new JFTeacherMark();
+			teacherMark.setStuId(students.get(i).getStuId());
+			teacherMark.setTeaId(students.get(i).getTeaId());
+			teacherMark = teacherMarkService.getTeacherMark(teacherMark);
+			if (teacherMark!=null) {
+				teaScore = teacherMark.getTeaA() + teacherMark.getTeaB() + teacherMark.getTeaC() + teacherMark.getTeaD() + teacherMark.getTeaE() + teacherMark.getTeaF() + teacherMark.getTeaG() + teacherMark.getTeaH();
+			}
+			score = teaScore * percent.getAdminPercent() + groScore * (1-percent.getAdminPercent());
+			//students.get(i).setScore((int)score);
+			students.get(i).setScore(Integer.parseInt(new java.text.DecimalFormat("0").format(score)));
 		}
-		model.addAttribute("students", students);
+		List<JFGroupInfo> groupInfos = groupInfoService.groupInfos();
+		model.addAttribute("groupInfos",groupInfos);
+		model.addAttribute("students",students);
+		model.addAttribute("teachers",teachers);
+		model.addAttribute("stuIdNow",stuIdNow);
+		model.addAttribute("stuNameNow",stuNameNow);
+		model.addAttribute("teaIdNow",teaIdNow);
+		model.addAttribute("groupIdNow",groupIdNow);
+		model.addAttribute("speechIdNow",speechIdNow);
+		String params = "&&";
+		if (stuIdNow!=null) {
+			params = params + "stuIdNow=" + stuIdNow + "&&"; 
+		}
+		if (stuNameNow!=null) {
+			params = params + "stuNameNow=" + stuNameNow + "&&"; 
+		}
+		if (teaIdNow!=null) {
+			params = params + "teaIdNow=" + teaIdNow + "&&"; 
+		}
+		if (groupIdNow!=null) {
+			params = params + "groupIdNow=" + groupIdNow + "&&"; 
+		}
+		if (speechIdNow!=null) {
+			params = params + "speechIdNow=" + speechIdNow + "&&"; 
+		}
+		model.addAttribute("params", params);
 		return "printer/studentList";
 	}
 	

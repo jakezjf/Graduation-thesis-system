@@ -86,6 +86,18 @@
 		<filter-name>TeacherSessionFilter</filter-name>
 		<url-pattern>/groComment/*</url-pattern>
 	</filter-mapping>
+	<filter-mapping>
+		<filter-name>TeacherSessionFilter</filter-name>
+		<url-pattern>/teacherComment/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>TeacherSessionFilter</filter-name>
+		<url-pattern>/teachergroup/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>TeacherSessionFilter</filter-name>
+		<url-pattern>/groComment/*</url-pattern>
+	</filter-mapping>
 	
 	
 	<!-- 控制器开始  admin -->
@@ -129,7 +141,44 @@
 		<filter-name>FrontSessionFilter</filter-name>
 		<url-pattern>/teacher/*</url-pattern>
 	</filter-mapping>
-		
+	<filter-mapping>
+		<filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/teacherUp/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/studentUp/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/studentUp/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/speech/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/printerNull/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/printer/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/judgment/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/group/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>FrontSessionFilter</filter-name>
+		<url-pattern>/comment/*</url-pattern>
+	</filter-mapping>
+	
+	
 		<!-- 控制器开始  student -->
 		
 	<!--	
@@ -175,7 +224,7 @@
 		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
 	</listener>
 	<session-config>
-		<session-timeout>20</session-timeout>
+		<session-timeout>40</session-timeout>
 	</session-config>
 	<servlet-mapping>
 		<servlet-name>DzzqCmsAdmin</servlet-name>

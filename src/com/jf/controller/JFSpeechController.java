@@ -23,9 +23,10 @@ import com.jf.model.JFSpeech;
 @RequestMapping("/speech")
 public class JFSpeechController {
 	
-	
+	//列出论文
 	@RequestMapping("pagelist.do")
 	public String pageList(JFSpeech speech,HttpServletRequest request, ModelMap model, HttpServletResponse response){
+                List<JFSpeech> speechs = speechService.getSpeech();
 		
 		return "";
 	}
